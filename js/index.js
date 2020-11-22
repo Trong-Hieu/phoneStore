@@ -74,6 +74,16 @@ function listProducts() {
     phone = JSON.parse(localStorage.getItem("phone"));  
     document.getElementById("list-new-products").innerHTML = listNewProducts(phone).join("");
     document.getElementById("list-best-sellers").innerHTML = listBestSellers(phone).join("");
+  }
+  var currentUser = JSON.parse(localStorage.getItem("currentUser"))
+  if(currentUser){
+       document.getElementById("dropUser").textContent = currentUser.name 
+       document.getElementById("dropUser").style.display = "block"
+       document.getElementById("login").style.display = "none"
+  }
+  else{
+     document.getElementById("dropUser").style.display = "none"
+     document.getElementById("login").style.display = "block"
   } 
 }
 
@@ -151,6 +161,11 @@ function listBestSellers(phone) {
     }
   });
   return renderProducts;
+}
+// danh thêm 
+function logOut(){
+  localStorage.removeItem("currentUser")
+  window.onload()
 }
 
 

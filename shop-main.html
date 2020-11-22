@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/css/grid.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/DanhLam.css">
 </head>
 <body onload="listProducts()">
   <header>
@@ -44,7 +45,15 @@
             <ul class="header__navbar__menu-list">
               <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-search"></i></a></li>
               <li class="header__navbar__menu-item"><a href="Cart-product.html"><i class="fas fa-shopping-cart"></i></a></li>
-              <li class="header__navbar__menu-item"><a href="#">Sign In</a></li>
+              <li class="header__navbar__menu-item"><a href="login-regis.html" id="login">Sign In</a></li>
+               <!-- danh sửa login button -->
+              <li class="header__navbar__menu-item"><div class="dropdown">
+                <a href="" id="dropUser">UserName</a><br>
+                <div class="dropdown-content">
+                <a href="#">Profile User</a>                                                                       
+                <a href="#" onclick="logOut()">Log Out</a>
+                </div>
+              </div></li>
             </ul>
           </div>
         </div>

@@ -1,3 +1,4 @@
+/* danh sửa css  */
 #nav1{
   height: 6rem;
   display: flex;
@@ -13,27 +14,28 @@
 #anhnen1 {
   background: URL(/images/hinh1.jpg); 
   background-size: cover ; 
-  height: 750px;
+  height: 580px;
 }
 .form1{
-  width: 550px; 
-  height: 550px;
+  width: 500px; 
+  height: 500px;
   margin-left: 1200px; 
   text-align: center; 
   background-color: white; 
   position: absolute; 
-  top: 200px;
+  top: 130px;
+  right: 100px;
   border-radius: 7px;
 }
 #username{
-  width: 450px;
+  width: 400px;
   margin: 35px 50px;
-  height: 50px;
+  height: 40px;
 }
 #password{
-  width: 450px;
+  width: 400px;
   margin: 35px 50px;
-  height: 50px;
+  height: 40px;
 }
 #userAdmin{
   width: 450px;
@@ -46,22 +48,22 @@
   height: 50px;
 }
 #buttonlogin{
-  width: 450px;
+  width: 400px;
   margin: 35px 50px;
   height: 50px;
 }
 #regisName{
-  width: 450px;
+  width: 400px;
   margin: 35px 50px;
   height: 50px;
 }
 #regisUser{
-  width: 450px;
+  width: 400px;
   margin: 35px 50px;
   height: 50px;
 }
 #regisPass{
-  width: 450px;
+  width: 400px;
   margin: 35px 50px;
   height: 50px;
 }
