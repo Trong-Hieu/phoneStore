@@ -1,16 +1,12 @@
 function listCart() {
     if (localStorage.getItem("cart") != null) {
         cart = JSON.parse(localStorage.getItem("cart"));
-        document.getElementById("length-cart").innerHTML = displayTotalCart(cart);
+        document.getElementById("length-cart").innerHTML = cart.length;
         document.getElementById("cart-list").innerHTML = displayListCart(cart).join("");
         document.getElementById("total-amount").innerHTML = displayTotalAmountCart(cart);
     }
 }
-function displayTotalCart(cart) {
-    var renderProduct =
-        `Cart (<span>${cart.length}</span> items)`;
-    return renderProduct;
-}
+
 var total = 0;
 function displayListCart(cart) {
     var renderProduct = cart.map((element, index) => {
@@ -80,34 +76,51 @@ function changeQuantity(id){
     if (localStorage.getItem("cart") != null) {
         cart = JSON.parse(localStorage.getItem("cart"));
     }
-    var newQuantity = document.getElementById("quantity"+id).value;
-    cart.map((element,index)=>{
-        if(element.id == id){
-            element.quantity = newQuantity;
+    var newQuantity =  Number(document.getElementById("quantity"+id).value);
+
+    for(i=0;i<cart.length;i++){
+        if(cart[i].id == id){
+            cart[i].quantity = newQuantity;
             localStorage.setItem("cart",JSON.stringify(cart))
-            alert("Da thay doi so luong");
+            alert("Da thay doi so luong")
         }
-      });
+    }
+    // cart.map((element,index)=>{
+    //     if(element.id == id){
+    //         element.quantity = newQuantity;
+    //         localStorage.setItem("cart",JSON.stringify(cart))
+    //         alert("Da thay doi so luong");
+    //     }
+    //   });
+    new listCart();
     
 }
 function deleteProductCart(id){
     if (localStorage.getItem("cart") != null) {
         cart = JSON.parse(localStorage.getItem("cart"));
     }
-      cart.map((element,index)=>{
-        if(element.id == id){
-            cart.splice(index,1);
+    for(i=0;i<cart.length;i++){
+        if(cart[i].id == id){
+            cart.splice(i,1);
             localStorage.setItem("cart",JSON.stringify(cart))
             alert("Da xoa san pham")
         }
-      });
+    }
+    //   cart.map((element,index)=>{
+    //     if(element.id == id){
+    //         cart.splice(index,1);
+    //         localStorage.setItem("cart",JSON.stringify(cart))
+    //         alert("Da xoa san pham")
+    //     }
+    //   });
 }
 function displayTotalAmountCart(cart) {
-    var renderProduct = cart.map((element, index) => {
-        return `
+    var renderProduct;
+    for(i=0;i<cart.length;i++){
+        renderProduct += `
         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
-        ${element.product["name"]} <span>  ${element.quantity}</span>
-        <span>${element.product['price'] * element.quantity}</span>
+        ${cart[i].product["name"]} <span>  ${cart[i].quantity}</span>
+        <span>${cart[i].product['price'] * cart[i].quantity}</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center px-0">
         Shipping
@@ -115,10 +128,8 @@ function displayTotalAmountCart(cart) {
     </li>
     
       `
-            ;
-        
-
-    }) + `<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+    }
+    renderProduct +=`<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
     <div>
         <strong>The total amount</strong>
         <strong>
@@ -126,6 +137,30 @@ function displayTotalAmountCart(cart) {
         </strong>
     </div>
     <span><strong>${total}</strong></span>
-</li>`;
-    return renderProduct;
+</li>`
+//     var renderProduct = cart.map((element, index) => {
+//         return `
+//         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+//         ${element.product["name"]} <span>  ${element.quantity}</span>
+//         <span>${element.product['price'] * element.quantity}</span>
+//     </li>
+//     <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+//         Shipping
+//         <span>Gratis</span>
+//     </li>
+    
+//       `
+//             ;
+        
+
+//     }) + `<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+//     <div>
+//         <strong>The total amount</strong>
+//         <strong>
+//             <p class="mb-0">(including VAT)</p>
+//         </strong>
+//     </div>
+//     <span><strong>${total}</strong></span>
+// </li>`;
+     return renderProduct;
 }

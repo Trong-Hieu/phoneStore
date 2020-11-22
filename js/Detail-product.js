@@ -45,10 +45,13 @@ function displayImageProduct(phone,id) {
 function displayRelativeProduct(phone,id){
     var j=4;
     var category
-    var renderProduct = phone.map((element, index) => {
-        if(element.id == id ){
-            category = element.category;
+    for ( i = 0; i < phone.length; i++) {
+        if(phone[i].id == id){
+            category = phone[i].category;
         }
+    }
+    var renderProduct = phone.map((element, index) => {
+        
         if (element.id != id && element.category == category && j>0 ) {
             j--;
             return `
@@ -70,10 +73,12 @@ function displayRelativeProduct(phone,id){
 function displayRelative2Product(phone,id){
     var j=4;
     var category
-    var renderProduct = phone.map((element, index) => {
-        if(element.id == id ){
-            category = element.category;
+    for ( i = 0; i < phone.length; i++) {
+        if(phone[i].id == id){
+            category = phone[i].category;
         }
+    }
+    var renderProduct = phone.map((element, index) => {
         if (element.id != id && element.category == category && j>0 ) {
             j--;
             return `
@@ -176,7 +181,7 @@ function displayInfoProduct(phone,id){
                     </tbody>
                 </table>
             </div>
-            <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button>
+            <a href="Checkout.html"><button type="button" class="btn btn-primary btn-md mr-1 mb-2" onclick="addCart(${id})">Buy now</button></a>
             <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="add-cart" onclick="addCart(${id})"><i
                     class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
           
@@ -187,9 +192,11 @@ function displayInfoProduct(phone,id){
     });
     return renderProduct;
 }
+
 function addCart(id){
     var quantity = parseInt( document.getElementById("quantity").value);
     var  product;
+    var cond;
     if (localStorage.getItem("phone") != null) {
         phone = JSON.parse(localStorage.getItem("phone"));
     }
@@ -201,32 +208,34 @@ function addCart(id){
           var cart = [];
       }
 
-    phone.map((element,index)=>{
-        if(element.id == id){
-            product = element;
+    for ( i = 0; i < phone.length; i++) {
+        if(phone[i].id == id){
+            product = phone[i];
         }
-    });
-    if(cart.length == 0){
+    }
+    if(cart.length<0){
         cart.push({
             id: cart.length+1,
             product: product,
             quantity: quantity,
         });
     }else{
-        cart.map((element,index)=>{
-            if(element.product['id'] == product.id){
-                element.quantity += quantity
+        for ( i = 0; i < cart.length; i++) {
+            if(cart[i].product["id"] == product.id){
+                cart[i].quantity += quantity;
+                cond=true;
             }
-            else if(element.product['id'] != product.id){
-                cart.push({
-                    id: cart.length+1,
-                    product: product,
-                    quantity: quantity,
-                });
-            }
-        })
+        }
+        if(!cond){
+            cart.push({
+                id: cart.length+1,
+                product: product,
+                quantity: quantity,
+            });
+        }
     }
     
+   
     
     localStorage.setItem("cart", JSON.stringify(cart));
     alert("Da them san pham vao gio hang")
