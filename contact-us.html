@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phone Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="/css/grid.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+  <header>
+    <nav class="header__navbar">
+      <div class="grid wide">
+        <div class="header__navbar__content">
+          <div class="header__navbar__logo">
+            <a href="index.html">
+              <img src="/images/logo@2x.png" alt="">
+            </a>
+          </div>
+          <div class="header__navbar__menu">
+            <ul class="header__navbar__menu-list">
+              <li class="header__navbar__menu-item"><a href="index.html">Home</a></li>
+              <li class="header__navbar__menu-item"><a href="shop-main.html">Shop</a></li>
+              <li class="header__navbar__menu-item"><a href="#">Blog</a></li>
+              <li class="header__navbar__menu-item header__navbar__menu-item--has-qr">
+                <label>Download App</label>
+                <div class="header__navbar__menu-item__qr">
+                  <img src="./images/qr_code.png" alt="QR code" class="header__navbar__menu-item__qr-img">
+                  <div class="header__navbar__menu-item__qr-apps">
+                    <a href="" class="header__navbar__menu-item__qr-link">
+                      <img src="./images/google_play.png" alt="Google Play" class="header__navbar__menu-item__qr-download-img">
+                    </a>
+                    <a href="" class="header__navbar__menu-item__qr-link">
+                      <img src="./images/app_store.png" alt="App Store" class="header__navbar__menu-item__qr-download-img">
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="header__navbar__menu-item--text-underline"><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+            <ul class="header__navbar__menu-list">
+              <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-search"></i></a></li>
+              <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+              <li class="header__navbar__menu-item"><a href="#">Sign In</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <container>
+    <div class="container__contact">
+      <div class="container__contact__wrap grid wide">
+        <div class="container__contact__heading">CONTACT US</div>
+        <div class="container__contact__form">
+          <div class="container__contact__content">
+            <div class="container__contact__group">
+              <label for="contact-name" class="container__contact__label">Name</label>
+              <input type="text" class="container__contact__input" id="contact-name">
+            </div>
+            <div class="container__contact__group">
+              <label for="contact-email" class="container__contact__label">Email</label>
+              <input type="text" class="container__contact__input" id="contact-email">
+            </div>
+            <div class="container__contact__group">
+              <label for="contact-telephone" class="container__contact__label">Telephone</label>
+              <input type="text" class="container__contact__input" id="contact-telephone">
+            </div>
+            <div class="container__contact__group container__contact__group">
+              <label for="contact-comment" class="container__contact__label">Comment</label>
+              <textarea type="text" class="container__contact__input--has-textarea" cols="100" id="contact-comment"></textarea>
+            </div>
+          </div>          
+          <div class="container__contact__logo">
+            <img src="/images/logo@2x.png" alt="">
+          </div>
+        </div>
+        <button class="container__contact__button">SUBMIT</button>
+        <div class="container__contact__slide">
+          <div class="container__contact__carousel">
+            <a href="shop-main.html" class="container__contact__carousel-slide">
+              <img src="./images/mobile/Nokia42-b_21.jpg" id="last-clone-image" alt="">
+              <img src="./images/mobile/Vivo42-b_50.jpg" alt="">
+              <img src="./images/mobile/Xiaomi42-b_45.jpg" alt="">
+              <img src="./images/mobile/Vsmart42-b_40.jpg" alt="">
+              <img src="./images/mobile/BlackBerry42-b_38.jpg" alt="">
+
+              <img src="./images/mobile/iPhone-42-b_16.jpg" alt="">
+              <img src="./images/mobile/Samsung42-b_25.jpg" alt="">
+              <img src="./images/mobile/OPPO42-b_27.jpg" alt="">
+              <img src="./images/mobile/Realme42-b_37.jpg" alt="">
+              <img src="./images/mobile/Nokia42-b_21.jpg" alt="">
+              <img src="./images/mobile/Vivo42-b_50.jpg" alt="">
+              <img src="./images/mobile/Xiaomi42-b_45.jpg" alt="">
+              <img src="./images/mobile/Vsmart42-b_40.jpg" alt="">
+              <img src="./images/mobile/BlackBerry42-b_38.jpg" alt="">
+
+              <img src="./images/mobile/iPhone-42-b_16.jpg" id="first-clone-image" alt="">
+              <img src="./images/mobile/Samsung42-b_25.jpg" alt="">
+              <img src="./images/mobile/OPPO42-b_27.jpg" alt="">
+              <img src="./images/mobile/Realme42-b_37.jpg" alt="">
+              <img src="./images/mobile/Nokia42-b_21.jpg" alt="">
+            </a>
+          </div>
+          <i class="fas fa-arrow-left" id="previous-btn"></i>
+          <i class="fas fa-arrow-right" id="next-btn"></i>
+        </div>
+      </div>
+    </div>
+  </container>
+
+  <footer>
+    <div class="grid wide">
+      <ul class="footer__menu">
+        <li class="footer__menu-item">
+          <h4 class="footer__menu-item__heading">CUSTOMER SERVICE</h4>
+          <div class="footer__menu-item__content">
+            <a href="" class="footer__menu-item__details">Hotline: 0914162236</a>
+            <a href="" class="footer__menu-item__details">Email: customer-service@aurum.com.vn</a>
+            <a href="" class="footer__menu-item__details">Shopping Guiding</a>
+          </div>
+        </li>
+        <li class="footer__menu-item">
+          <h4 class="footer__menu-item__heading">FOUNDER</h4>
+          <div class="footer__menu-item__content">
+            <a href="https://www.facebook.com/dat.lat.391" class="footer__menu-item__details" target="_blank">Nguyễn Trọng Hiếu</a>
+            <a href="https://www.facebook.com/tai.le.37017794" class="footer__menu-item__details" target="_blank">Lê Trọng Tài</a>
+            <a href="https://www.facebook.com/cleary.thong" class="footer__menu-item__details" target="_blank">Huỳnh Minh Thông</a>
+            <a href="https://www.facebook.com/iam.docoda" class="footer__menu-item__details" target="_blank">Đoàn Công Danh</a>
+            <a href="https://www.facebook.com/duckhai80" class="footer__menu-item__details" target="_blank">Trương Đức Khải</a>
+          </div>
+        </li>
+        <li class="footer__menu-item">
+          <h4 class="footer__menu-item__heading">Our Location</h4>
+          <div class="footer__menu-item__content">
+            <a href="" class="footer__menu-item__details">459 Ton Duc Thang Street, Danang</a>
+            <a href="" class="footer__menu-item__details">Site Map</a>
+          </div>
+        </li>
+        <li class="footer__menu-item">
+          <h4 class="footer__menu-item__heading">INFORMATION</h4>
+          <div class="footer__menu-item__content">
+            <a href="" class="footer__menu-item__details">Introduction</a>
+            <a href="" class="footer__menu-item__details">Recruiment at apply-job@aurum.com.vn</a>
+          </div>
+        </li>
+        <li class="footer__menu-item">
+          <h4 class="footer__menu-item__heading">SOCIAL</h4>
+          <div class="footer__menu-item__content">
+            <div class="footer__menu-item__content-icon">
+              <a href="" class="footer__menu-item__details" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="" class="footer__menu-item__details" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="" class="footer__menu-item__details" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="" class="footer__menu-item__details" title="Youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+              <a href="" class="footer__menu-item__details" title="Viemeo" target="_blank"><i class="fab fa-vimeo"></i></a>
+              <a href="" class="footer__menu-item__details" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+              <a href="" class="footer__menu-item__details" title="Snapchat" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="footer__copyright">© Copyright 2020 | Aurum by Đức Khải</div>
+      <ul class="footer__addition">
+        <li class="footer__addition-item"><a href="">Privacy & Cookies</a></li>
+        <li class="footer__addition-item"><a href="">Term & Conditions</a></li>
+        <li class="footer__addition-item"><a href="">Shop</a></li>
+        <li class="footer__addition-item"><a href="">About Us</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+  <script src="/js/contact-us.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/login-regis.css">
+</head>
+<body>
+<nav id="nav1">
+    <div id="div1">
+        <div style="display:flex;">
+            <a href="index.html" > <h1> <b> AURUM</b></h1></a>
+            <div id="dn" style="display: flex; align-items: center; margin-left: 30px; color: rgb(235, 180, 0);"><h2>Đăng nhập</h2></div>
+            <div id="dk" style="display: none; align-items: center; margin-left: 30px; color:  rgb(235, 180, 0);"><h2>Đăng kí</h2></div>
+            <div id="lostpw" style="display: none; align-items: center; margin-left: 30px; color:  rgb(235, 180, 0);"><h2>Đặt lại mật khẩu</h2></div>
+        </div>
+        <a href="https://www.thegioididong.com/lien-he" ><h3>Cần trợ giúp?</h3></a>
+    </div>
+</nav>
+<div id="anhnen1">
+<div id="formlogin" class="form1">
+    <h3 style="margin: 40px auto;">Đăng Nhập</h3>
+    <form id="form-login">
+        <div class="form-group">
+            <input id="username" type="text" class="form-control" placeholder="Nhập tên đăng nhập">  
+        </div>
+        <div class="form-group">
+            <input id="password" type="password" class="form-control" placeholder="Nhập mật khẩu">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Ghi nhớ mật khẩu</label>
+          </div>
+          <input type="button" id="buttonlogin" class="btn btn-secondary" value="Đăng Nhập" style="font-size: 20px;" onclick="getinfo()"></input>
+    </form>
+    <a class="forgot-password" href="#" style="color: coral;"  onclick="lostpass()"> Quên mật khẩu?</a> 
+    <class class="sign-up" style="color: black">
+        Bạn chưa có tài khoản? <a class="s1" href="#" style="color: coral;"  onclick="regis()"> Đăng kí</a>
+    </class>
+    </div>
+    </div>
+    <footer style="text-align:center; margin: 35px 50px;">
+        <div id="div1">
+            <div><a href="https://www.thegioididong.com/hoi-dap"><b>Q&A</b></a></div>
+            <div><a href="https://www.facebook.com/thegioididongcom"><b>PAGE.FACEBOOK</b></a></div>
+            <div><a href="https://www.google.com/search?sxsrf=ALeKk003O30U0KoBu-eRw6y64oviRzVIMg:1602759410892&q=%C4%91%E1%BB%8Ba+ch%E1%BB%89+th%E1%BA%BF+gi%E1%BB%9Bi+di+%C4%91%E1%BB%99ng+%C4%91%C3%A0+n%E1%BA%B5ng&npsic=0&rflfq=1&rldoc=1&rlha=0&rllag=16026742,108207916,1183&tbm=lcl&sxsrf=ALeKk003O30U0KoBu-eRw6y64oviRzVIMg:1602759410892&sa=X&ved=2ahUKEwi9vOKKuLbsAhXFyYsBHWPhAH0QjGp6BAgKEDU&biw=1536&bih=754#rlfi=hd:;si:;mv:[[16.0784983,108.2378933],[15.9951438,108.1812753]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!2m1!1e3!3sIAE,lf:1,lf_ui:4"><b>STORE LOCATOR</b></a></div>
+            <div><a href="https://www.thegioididong.com/tin-tuc/thegioididong-chinh-thuc-phu-song-63-63-tinh-thanh-45088"><b>COVERAGE</b></a></div>
+        </div>
+    </footer>
+</div> 
+<div id="formregis" class="form1" style="display: none;"> 
+    <h3 style="margin: 40px auto;">Đăng Kí</h3>
+        <form>
+            <div class="form-group">
+                <input id="regisName" type="text" class="form-control" placeholder="Nhập tên của bạn">  
+            </div>
+            <div class="form-group">
+                <input id="regisUser" type="email" class="form-control" placeholder="Nhập địa chỉ email">
+            </div>
+            <div class="form-group">
+                <input id="regisPass" type="password" class="form-control" placeholder="Nhập mật khẩu mới">  
+            </div>
+            <button type="button"  class="btn btn-secondary" style="font-size: 20px;" onclick="saveNewUser()">Đăng Kí Tài Khoản</button>
+        </form>
+    </div>
+    <script src="/js/login-regis.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/shop-main.js"></script>     
+</body>
+</html>

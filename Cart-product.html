@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- Roboto Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;display=swap">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb-pro.min.css">
+    <!-- Material Design Bootstrap Ecommerce -->
+    <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb.ecommerce.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body onload="listCart()">
+    <header>
+        <nav class="header__navbar">
+            <div class="grid wide">
+                <div class="header__navbar__content">
+                    <div class="header__navbar__logo">
+                        <a href="index.html" >
+                            <img src="/images/logo@2x.png" alt="">
+                        </a>
+                    </div>
+                    <div class="header__navbar__menu">
+                        <ul class="header__navbar__menu-list">
+                            <li class="header__navbar__menu-item--text-underline"><a href="index.html" >Home</a></li>
+                            <li class="header__navbar__menu-item"><a href="shop-main.html">Shop</a></li>
+                            <li class="header__navbar__menu-item"><a href="#">Blog</a></li>
+                            <li class="header__navbar__menu-item header__navbar__menu-item--has-qr">
+                                <label href="">Download App</label>
+                                <div class="header__navbar__menu-item__qr">
+                                    <img src="./images/qr_code.png" alt="QR code"
+                                        class="header__navbar__menu-item__qr-img">
+                                    <div class="header__navbar__menu-item__qr-apps">
+                                        <a href="" class="header__navbar__menu-item__qr-link">
+                                            <img src="./images/google_play.png" alt="Google Play"
+                                                class="header__navbar__menu-item__qr-download-img">
+                                        </a>
+                                        <a href="" class="header__navbar__menu-item__qr-link">
+                                            <img src="./images/app_store.png" alt="App Store"
+                                                class="header__navbar__menu-item__qr-download-img">
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__navbar__menu-item"><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+                        <ul class="header__navbar__menu-list">
+                            <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-search"></i></a></li>
+                            <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-shopping-cart"></i></a>
+                            </li>
+                            <li class="header__navbar__menu-item"><a href="#">Sign In</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <!--Section: Block Content-->
+        <section>
+
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-lg-8">
+
+                    <!-- Card -->
+                    <div class="mb-3">
+                        <div class="pt-4 wish-list" id="cart-list">
+
+                            <h5 class="mb-4" id="length-cart"></h5>
+
+                            
+                            <hr class="mb-4">
+                            
+                            <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the
+                                purchase, adding
+                                items to your cart does not mean booking them.</p>
+
+                        </div>
+                    </div>
+                    <!-- Card -->
+
+                    <!-- Card -->
+                    <div class="mb-3">
+                        <div class="pt-4">
+
+                            <h5 class="mb-4">Expected shipping delivery</h5>
+
+                            <p class="mb-0"> Thu., 12.03. - Mon., 16.03.</p>
+                        </div>
+                    </div>
+                    <!-- Card -->
+
+                    <!-- Card -->
+                    <div class="mb-3">
+                        <div class="pt-4">
+
+                            <h5 class="mb-4">We accept</h5>
+
+                            <img class="mr-2" width="45px"
+                                src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                                alt="Visa">
+                            <img class="mr-2" width="45px"
+                                src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                                alt="American Express">
+                            <img class="mr-2" width="45px"
+                                src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                                alt="Mastercard">
+                            <img class="mr-2" width="45px"
+                                src="https://mdbootstrap.com/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
+                                alt="PayPal acceptance mark">
+                        </div>
+                    </div>
+                    <!-- Card -->
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4">
+
+                    <!-- Card -->
+                    <div class="mb-3">
+                        <div class="pt-4">
+
+                            <h5 class="mb-3">The total amount of</h5>
+                            <ul class="llist-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                                    <strong>Name</strong>
+                                    <span><strong>Quantity</strong></span>
+                                    <span><strong>Price</strong> </span>
+                                </li>
+                                
+                            </ul>
+                            <ul class="list-group list-group-flush" id="total-amount">
+                                
+                            </ul>
+
+                            <button type="button" class="btn btn-primary btn-block">go to checkout</button>
+
+                        </div>
+                    </div>
+                    <!-- Card -->
+
+                    <!-- Card -->
+                    <div class="mb-3">
+                        <div class="pt-4">
+
+                            <a class="dark-grey-text d-flex justify-content-between" data-toggle="collapse"
+                                href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" >
+                                Add a discount code (optional)
+                                <span><i class="fas fa-chevron-down pt-1"></i></span>
+                            </a>
+
+                            <div class="collapse" id="collapseExample">
+                                <div class="mt-3">
+                                    <div class="md-form md-outline mb-0">
+                                        <input type="text" id="discount-code" class="form-control font-weight-light"
+                                            placeholder="Enter discount code">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card -->
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!-- Grid row -->
+
+        </section>
+        <!--Section: Block Content-->
+    </div>
+    <footer>
+        <div class="grid wide">
+            <ul class="footer__menu">
+                <li class="footer__menu-item">
+                    <h4 class="footer__menu-item__heading">CUSTOMER SERVICE</h4>
+                    <div class="footer__menu-item__content">
+                        <a href="" class="footer__menu-item__details">Hotline: 0914162236</a>
+                        <a href="" class="footer__menu-item__details">Email: customer-service@aurum.com.vn</a>
+                        <a href="" class="footer__menu-item__details">Shopping Guiding</a>
+                    </div>
+                </li>
+                <li class="footer__menu-item">
+                    <h4 class="footer__menu-item__heading">FOUNDER</h4>
+                    <div class="footer__menu-item__content">
+                        <a href="https://www.facebook.com/dat.lat.391" class="footer__menu-item__details"
+                            target="_blank">Nguyễn Trọng Hiếu</a>
+                        <a href="https://www.facebook.com/tai.le.37017794" class="footer__menu-item__details"
+                            target="_blank">Lê Trọng Tài</a>
+                        <a href="https://www.facebook.com/cleary.thong" class="footer__menu-item__details"
+                            target="_blank">Huỳnh Minh Thông</a>
+                        <a href="https://www.facebook.com/iam.docoda" class="footer__menu-item__details"
+                            target="_blank">Đoàn Công Danh</a>
+                        <a href="https://www.facebook.com/duckhai80" class="footer__menu-item__details"
+                            target="_blank">Trương Đức Khải</a>
+                    </div>
+                </li>
+                <li class="footer__menu-item">
+                    <h4 class="footer__menu-item__heading">Our Location</h4>
+                    <div class="footer__menu-item__content">
+                        <a href="" class="footer__menu-item__details">459 Ton Duc Thang Street, Danang</a>
+                        <a href="" class="footer__menu-item__details">Site Map</a>
+                    </div>
+                </li>
+                <li class="footer__menu-item">
+                    <h4 class="footer__menu-item__heading">INFORMATION</h4>
+                    <div class="footer__menu-item__content">
+                        <a href="" class="footer__menu-item__details">Introduction</a>
+                        <a href="" class="footer__menu-item__details">Recruiment at apply-job@aurum.com.vn</a>
+                    </div>
+                </li>
+                <li class="footer__menu-item">
+                    <h4 class="footer__menu-item__heading">SOCIAL</h4>
+                    <div class="footer__menu-item__content">
+                        <div class="footer__menu-item__content-icon">
+                            <a href="" class="footer__menu-item__details" title="Facebook" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="" class="footer__menu-item__details" title="Twitter" target="_blank"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="" class="footer__menu-item__details" title="Instagram" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="" class="footer__menu-item__details" title="Youtube" target="_blank"><i
+                                    class="fab fa-youtube"></i></a>
+                            <a href="" class="footer__menu-item__details" title="Viemeo" target="_blank"><i
+                                    class="fab fa-vimeo"></i></a>
+                            <a href="" class="footer__menu-item__details" title="LinkedIn" target="_blank"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="" class="footer__menu-item__details" title="Snapchat" target="_blank"><i
+                                    class="fab fa-snapchat-ghost"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="footer__copyright">© Copyright 2020 | Aurum by Đức Khải</div>
+            <ul class="footer__addition">
+                <li class="footer__addition-item"><a href="">Privacy & Cookies</a></li>
+                <li class="footer__addition-item"><a href="">Term & Conditions</a></li>
+                <li class="footer__addition-item"><a href="">Shop</a></li>
+                <li class="footer__addition-item"><a href="">About Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+        integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+        crossorigin="anonymous"></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/index.js"></script>
+    <!-- <script src="/js/contact-us.js"></script> -->
+<script src="/js/Cart.js"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/js/mdb.min.js"></script>
+</body>
+
+</html>

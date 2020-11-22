@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
+    <!-- Roboto Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;display=swap">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb-pro.min.css">
+    <!-- Material Design Bootstrap Ecommerce -->
+    <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb.ecommerce.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body onload="detailProduct()" >
+    <header>
+        <nav class="header__navbar">
+            <div class="grid wide">
+                <div class="header__navbar__content">
+                    <div class="header__navbar__logo">
+                        <a href="index.html">
+                            <img src="/images/logo@2x.png" alt="">
+                        </a>
+                    </div>
+                    <div class="header__navbar__menu">
+                        <ul class="header__navbar__menu-list">
+                            <li class="header__navbar__menu-item--text-underline"><a href="index.html">Home</a></li>
+                            <li class="header__navbar__menu-item"><a href="shop-main.html">Shop</a></li>
+                            <li class="header__navbar__menu-item"><a href="#">Blog</a></li>
+                            <li class="header__navbar__menu-item header__navbar__menu-item--has-qr">
+                                <label href="">Download App</label>
+                                <div class="header__navbar__menu-item__qr">
+                                    <img src="./images/qr_code.png" alt="QR code"
+                                        class="header__navbar__menu-item__qr-img">
+                                    <div class="header__navbar__menu-item__qr-apps">
+                                        <a href="" class="header__navbar__menu-item__qr-link">
+                                            <img src="./images/google_play.png" alt="Google Play"
+                                                class="header__navbar__menu-item__qr-download-img">
+                                        </a>
+                                        <a href="" class="header__navbar__menu-item__qr-link">
+                                            <img src="./images/app_store.png" alt="App Store"
+                                                class="header__navbar__menu-item__qr-download-img">
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__navbar__menu-item"><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+                        <ul class="header__navbar__menu-list">
+                            <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-search"></i></a></li>
+                            <li class="header__navbar__menu-item"><a href="Cart-product.html"><i class="fas fa-shopping-cart"></i></a>
+                            </li>
+                            <li class="header__navbar__menu-item"><a href="#">Sign In</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <!--Section: Block Content-->
+        <section class="mb-5">
+
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+
+                    <div id="mdb-lightbox-ui "></div>
+
+                    <div class="mdb-lightbox">
+
+                        <div class="row product-gallery mx-1">
+
+                            <div class="col-12 mb-0" id="detail-product">
+                                <!-- <figure class="view overlay rounded z-depth-1 main-img" >
+                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+                                        data-size="710x823">
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+                                            class="img-fluid z-depth-1">
+                                    </a>
+                                </figure>
+                                <figure class="view overlay rounded z-depth-1"
+                                    style="visibility: hidden;display: none;">
+                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
+                                        data-size="710x823">
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
+                                            class="img-fluid z-depth-1">
+                                    </a>
+                                </figure>
+                                <figure class="view overlay rounded z-depth-1"
+                                    style="visibility: hidden;display: none;">
+                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg"
+                                        data-size="710x823">
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg"
+                                            class="img-fluid z-depth-1">
+                                    </a>
+                                </figure>
+                                <figure class="view overlay rounded z-depth-1"
+                                    style="visibility: hidden;display: none;">
+                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg"
+                                        data-size="710x823">
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg"
+                                            class="img-fluid z-depth-1">
+                                    </a>
+                                </figure> -->
+                            </div>
+                            <div class="col-12">
+                                <div class="row" id="relativeProduct">
+                                    <!-- <div class="col-3">
+                                        <div class="view overlay rounded z-depth-1 gallery-item">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
+                                                class="img-fluid">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="view overlay rounded z-depth-1 gallery-item">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg"
+                                                class="img-fluid">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="view overlay rounded z-depth-1 gallery-item">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg"
+                                                class="img-fluid">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="view overlay rounded z-depth-1 gallery-item">
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+                                                class="img-fluid">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-6" id="infoProduct">
+
+                    <!-- <h5>Fantasy T-shirt</h5>
+                    <p class="mb-2 text-muted text-uppercase small">Shirts</p>
+                    <ul class="rating">
+                        <li>
+                            <i class="fas fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                    </ul>
+                    <p><span class="mr-1"><strong>$12.99</strong></span></p>
+                    <p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
+                        error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
+                        officia quis dolore quos sapiente tempore alias.</p>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Model</strong></th>
+                                    <td>Shirt 5407X</td>
+                                </tr>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Color</strong></th>
+                                    <td>Black</td>
+                                </tr>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Delivery</strong></th>
+                                    <td>USA, Europe</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr>
+                    <div class="table-responsive mb-2">
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="pl-0 pb-0 w-25">Quantity</td>
+                                    <td class="pb-0">Select Color</td>
+                                </tr>
+                                <tr>
+                                    <td class="pl-0">
+                                        <div class="def-number-input number-input safari_only mb-0">
+
+                                            <input class="quantity" min="0" name="quantity" value="1" type="number">
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="mt-1">
+                                            <div class="form-check form-check-inline pl-0">
+                                                <input type="radio" class="form-check-input" id="small"
+                                                    name="materialExampleRadios" checked>
+                                                <label class="form-check-label small text-uppercase card-link-secondary"
+                                                    for="small">Black</label>
+                                            </div>
+                                            <div class="form-check form-check-inline pl-0">
+                                                <input type="radio" class="form-check-input" id="medium"
+                                                    name="materialExampleRadios">
+                                                <label class="form-check-label small text-uppercase card-link-secondary"
+                                                    for="medium">Medium</label>
+                                            </div>
+                                            <div class="form-check form-check-inline pl-0">
+                                                <input type="radio" class="form-check-input" id="large"
+                                                    name="materialExampleRadios">
+                                                <label class="form-check-label small text-uppercase card-link-secondary"
+                                                    for="large">Large</label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button>
+                    <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i
+                            class="fas fa-shopping-cart pr-2"></i>Add to cart</button> -->
+                </div>
+            </div>
+
+        </section>
+        <!--Section: Block Content-->
+        <!-- Classic tabs -->
+        <div class="classic-tabs border rounded px-4 pt-1">
+
+            <ul class="nav tabs-primary nav-justified" id="advancedTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active show" id="description-tab" data-toggle="tab" href="#description"
+                        role="tab" aria-controls="description" aria-selected="true">Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info"
+                        aria-selected="false">Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
+                        aria-controls="reviews" aria-selected="false">Reviews</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="advancedTabContent">
+                <div class="tab-pane fade show active" id="description" role="tabpanel"
+                    aria-labelledby="description-tab">
+                    <h5>Product Description</h5>
+                    <p class="small text-muted text-uppercase mb-2">Shirts</p>
+                    <ul class="rating">
+                        <li>
+                            <i class="fas fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fas fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                    </ul>
+                    <h6>12.99 $</h6>
+                    <p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
+                        error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
+                        officia quis dolore quos sapiente tempore alias.</p>
+                </div>
+                <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+                    <h5>Additional Information</h5>
+                    <table class="table table-striped table-bordered mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="row" class="w-150 dark-grey-text h6">Weight</th>
+                                <td><em>0.3 kg</em></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="w-150 dark-grey-text h6">Dimensions</th>
+                                <td><em>50 × 60 cm</em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                    <h5><span>1</span> review for <span>Fantasy T-shirt</span></h5>
+                    <div class="media mt-3 mb-4">
+                        <img class="d-flex mr-3 z-depth-1"
+                            src="https://mdbootstrap.com/img/Photos/Others/placeholder1.jpg" width="62"
+                            alt="Generic placeholder image">
+                        <div class="media-body">
+                            <div class="d-sm-flex justify-content-between">
+                                <p class="mt-1 mb-2">
+                                    <strong>Marthasteward </strong>
+                                    <span>– </span><span>January 28, 2020</span>
+                                </p>
+                                <ul class="rating mb-sm-0">
+                                    <li>
+                                        <i class="fas fa-star fa-sm text-primary"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star fa-sm text-primary"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star fa-sm text-primary"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star fa-sm text-primary"></i>
+                                    </li>
+                                    <li>
+                                        <i class="far fa-star fa-sm text-primary"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p class="mb-0">Nice one, love it!</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <h5 class="mt-4">Add a review</h5>
+                    <p>Your email address will not be published.</p>
+                    <div class="my-3">
+                        <ul class="rating mb-0">
+                            <li>
+                                <a href="#!">
+                                    <i class="fas fa-star fa-sm text-primary"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <i class="fas fa-star fa-sm text-primary"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <i class="fas fa-star fa-sm text-primary"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <i class="fas fa-star fa-sm text-primary"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <i class="far fa-star fa-sm text-primary"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <!-- Your review -->
+                        <div class="md-form md-outline">
+                            <textarea id="form76" class="md-textarea form-control pr-6" rows="4"></textarea>
+                            <label for="form76">Your review</label>
+                        </div>
+                        <!-- Name -->
+                        <div class="md-form md-outline">
+                            <input type="text" id="form75" class="form-control pr-6">
+                            <label for="form75">Name</label>
+                        </div>
+                        <!-- Email -->
+                        <div class="md-form md-outline">
+                            <input type="email" id="form77" class="form-control pr-6">
+                            <label for="form77">Email</label>
+                        </div>
+                        <div class="text-right pb-2">
+                            <button type="button" class="btn btn-primary">Add a review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Classic tabs -->
+        <!--Section: Block Content-->
+        <section class="text-center">
+
+            <!-- Grid row -->
+            <div class="row" id="relative2Product">
+
+                
+
+            </div>
+            <!-- Grid row -->
+
+        </section>
+        <!--Section: Block Content-->
+    </div>
+
+    <footer>
+        <div class="grid wide">
+            <ul class="footer__menu">
+                <li class="footer__menu-item">
+                    <h4 class="footer__menu-item__heading">CUSTOMER SERVICE</h4>
+                    <div class="footer__menu-item__content">
+                        <a href="" class="footer__menu-item__details">Hotline: 0914162236</a>
+                        <a href="" class="footer__menu-item__details">Email: customer-service@aurum.com.vn</a>
+                        <a href="" class="footer__menu-item__details">Shopping Guiding</a>
+                    </div>
+                </li>
+                <li class="footer__menu-item">
+                    <h4 class="footer__menu-item__heading">FOUNDER</h4>
+                    <div class="footer__menu-item__content">
+                        <a href="https://www.facebook.com/dat.lat.391" class="footer__menu-item__details"
+                            target="_blank">Nguyễn Trọng Hiếu</a>
+                        <a href="https://www.facebook.com/tai.le.37017794" class="footer__menu-item__details"
+                            target="_blank">Lê Trọng Tài</a>
+                        <a href="https://www.facebook.com/cleary.thong" class="footer__menu-item__details"
+                            target="_blank">Huỳnh Minh Thông</a>
+                        <a href="https://www.facebook.com/iam.docoda" class="footer__menu-item__details"
+                            target="_blank">Đoàn Công Danh</a>
+                        <a href="https://www.facebook.com/duckhai80" class="footer__menu-item__details"
+                            target="_blank">Trương Đức Khải</a>
+                    </div>
+                </li>
+                <li class="footer__menu-item">
+                    <h4 class="footer__menu-item__heading">Our Location</h4>
+                    <div class="footer__menu-item__content">
+                        <a href="" class="footer__menu-item__details">459 Ton Duc Thang Street, Danang</a>
+                        <a href="" class="footer__menu-item__details">Site Map</a>
+                    </div>
+                </li>
+                <li class="footer__menu-item">
+                    <h4 class="footer__menu-item__heading">INFORMATION</h4>
+                    <div class="footer__menu-item__content">
+                        <a href="" class="footer__menu-item__details">Introduction</a>
+                        <a href="" class="footer__menu-item__details">Recruiment at apply-job@aurum.com.vn</a>
+                    </div>
+                </li>
+                <li class="footer__menu-item">
+                    <h4 class="footer__menu-item__heading">SOCIAL</h4>
+                    <div class="footer__menu-item__content">
+                        <div class="footer__menu-item__content-icon">
+                            <a href="" class="footer__menu-item__details" title="Facebook" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="" class="footer__menu-item__details" title="Twitter" target="_blank"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="" class="footer__menu-item__details" title="Instagram" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="" class="footer__menu-item__details" title="Youtube" target="_blank"><i
+                                    class="fab fa-youtube"></i></a>
+                            <a href="" class="footer__menu-item__details" title="Viemeo" target="_blank"><i
+                                    class="fab fa-vimeo"></i></a>
+                            <a href="" class="footer__menu-item__details" title="LinkedIn" target="_blank"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="" class="footer__menu-item__details" title="Snapchat" target="_blank"><i
+                                    class="fab fa-snapchat-ghost"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="footer__copyright">© Copyright 2020 | Aurum by Đức Khải</div>
+            <ul class="footer__addition">
+                <li class="footer__addition-item"><a href="">Privacy & Cookies</a></li>
+                <li class="footer__addition-item"><a href="">Term & Conditions</a></li>
+                <li class="footer__addition-item"><a href="">Shop</a></li>
+                <li class="footer__addition-item"><a href="">About Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+        integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+        crossorigin="anonymous"></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/index.js"></script>
+    <!-- <script src="/js/contact-us.js"></script> -->
+
+    <script src="js/Detail-product.js"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/js/mdb.min.js"></script>
+</body>
+
+</html>
