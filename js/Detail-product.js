@@ -13,7 +13,7 @@ function getUrlParameter(sParam) {
         }
     }
 };
-
+var count =0;
 function detailProduct() {
     if (localStorage.getItem("phone") != null) {
         phone = JSON.parse(localStorage.getItem("phone"));
@@ -24,9 +24,12 @@ function detailProduct() {
     }
     if (localStorage.getItem("cart") != null) {
         cart = JSON.parse(localStorage.getItem("cart"));
-        document.getElementById("length-Cart").innerHTML = cart.length;
+        for(i = 0;i<cart.length;i++){
+            if(cart[i].userName == currentUser.username) count ++;
+        }
+        document.getElementById("length-Cart").innerHTML = count;
       }
-      if(cart.length<1){
+      if(count ==0){
         document.getElementById("length-Cart").style.display = "none";
       }
 }
@@ -207,7 +210,9 @@ function addCart(id){
     if (localStorage.getItem("phone") != null) {
         phone = JSON.parse(localStorage.getItem("phone"));
     }
-
+    if (localStorage.getItem("currentUser") != null) {
+        currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    }
     if(localStorage.getItem("cart") != null) {
         cart = JSON.parse(localStorage.getItem("cart"));  
         
@@ -223,6 +228,7 @@ function addCart(id){
     if(cart.length<0){
         cart.push({
             id: cart.length+1,
+            userName: currentUser.username,
             product: product,
             quantity: quantity,
         });
@@ -236,6 +242,7 @@ function addCart(id){
         if(!cond){
             cart.push({
                 id: cart.length+1,
+                userName: currentUser.username,
                 product: product,
                 quantity: quantity,
             });

@@ -11,7 +11,7 @@ categories.forEach(function(category) {
     }
   }
 });
-
+var count=0;
 function listProducts() {
   if(localStorage.getItem("phone") != null) {
     phone = JSON.parse(localStorage.getItem("phone"));  
@@ -27,13 +27,6 @@ function listProducts() {
       }
     }
   } 
-  if (localStorage.getItem("cart") != null) {
-    cart = JSON.parse(localStorage.getItem("cart"));
-    document.getElementById("length-Cart").innerHTML = cart.length;
-  }
-  if(cart.length<1){
-    document.getElementById("length-Cart").style.display = "none";
-  }
   // danh sửa login - regis
   var currentUser = JSON.parse(localStorage.getItem("currentUser"))
   if(currentUser){
@@ -45,6 +38,18 @@ function listProducts() {
      document.getElementById("dropUser").style.display = "none"
      document.getElementById("login").style.display = "block"
   } 
+  if (localStorage.getItem("cart") != null) {
+    cart = JSON.parse(localStorage.getItem("cart"));
+    for(i = 0;i<cart.length;i++){
+      if(cart[i].userName == currentUser.usermame) count ++;
+  }
+    document.getElementById("length-Cart").innerHTML = count;
+  }
+  if(count==0){
+    document.getElementById("length-Cart").style.display = "none";
+  }
+  
+  
 }
 
 function listAllProducts(phone) {

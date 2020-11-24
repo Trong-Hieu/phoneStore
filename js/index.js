@@ -67,19 +67,12 @@ var carouselBackground = setInterval(function() {
 //     document.getElementById("list-new-products").innerHTML = showProducts.join("");
 //   }
 // }
-
+var count=0;
 function listProducts() {
   if(localStorage.getItem("phone") != null) {
     phone = JSON.parse(localStorage.getItem("phone"));  
     document.getElementById("list-new-products").innerHTML = listNewProducts(phone).join("");
     document.getElementById("list-best-sellers").innerHTML = listBestSellers(phone).join("");
-  }
-  if (localStorage.getItem("cart") != null) {
-    cart = JSON.parse(localStorage.getItem("cart"));
-    document.getElementById("length-Cart").innerHTML = cart.length;
-  }
-  if(cart.length<1){
-    document.getElementById("length-Cart").style.display = "none";
   }
   var currentUser = JSON.parse(localStorage.getItem("currentUser"))
   if(currentUser){
@@ -90,7 +83,18 @@ function listProducts() {
   else{
      document.getElementById("dropUser").style.display = "none"
      document.getElementById("login").style.display = "block"
-  } 
+  }
+  if (localStorage.getItem("cart") != null) {
+    cart = JSON.parse(localStorage.getItem("cart"));
+    for(i = 0;i<cart.length;i++){
+      if(cart[i].userName == currentUser.username) count ++;
+  }
+    document.getElementById("length-Cart").innerHTML = count;
+  }
+  if(count==0){
+    document.getElementById("length-Cart").style.display = "none";
+  }
+
 }
 
 function listNewProducts(phone) {
@@ -173,25 +177,3 @@ function logOut(){
   localStorage.removeItem("currentUser")
   window.onload()
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,20 +1,29 @@
+var count = 0;
 function listCart() {
+    if (localStorage.getItem("currentUser") != null) {
+        currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    }
     if (localStorage.getItem("cart") != null) {
         cart = JSON.parse(localStorage.getItem("cart"));
-        document.getElementById("length-cart").innerHTML = cart.length;
-        document.getElementById("cart-list").innerHTML = displayListCart(cart).join("");
-        document.getElementById("total-amount").innerHTML = displayTotalAmountCart(cart);
-        document.getElementById("length-Cart").innerHTML = cart.length;
+        for(i = 0;i<cart.length;i++){
+            if(cart[i].userName == currentUser.username) count ++;
+        }
+        
+        document.getElementById("length-cart").innerHTML = count;
+        document.getElementById("cart-list").innerHTML = displayListCart(cart,currentUser).join("");
+        document.getElementById("total-amount").innerHTML = displayTotalAmountCart(cart,currentUser);
+        document.getElementById("length-Cart").innerHTML = count;
     }
-    if(cart.length<1){
+    if(count==0){
         document.getElementById("length-Cart").style.display = "none";
       }
 }
 
 var total = 0;
-function displayListCart(cart) {
+function displayListCart(cart,currentUser) {
     var renderProduct = cart.map((element, index) => {
-        total += element.product['price'] * element.quantity;
+        if(element.userName == currentUser.username){
+            total += element.product['price'] * element.quantity;
         return `
             <div class="row mb-4">
             <div class="col-md-5 col-lg-3 col-xl-3">
@@ -72,6 +81,8 @@ function displayListCart(cart) {
           `
 
             ;
+        }
+        
 
     });
     return renderProduct;
@@ -118,10 +129,11 @@ function deleteProductCart(id){
     //     }
     //   });
 }
-function displayTotalAmountCart(cart) {
+function displayTotalAmountCart(cart,currentUser) {
     var renderProduct;
     for(i=0;i<cart.length;i++){
-        renderProduct += `
+        if(cart[i].userName == currentUser.username){
+            renderProduct += `
         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
         ${cart[i].product["name"]} <span>  ${cart[i].quantity}</span>
         <span>${cart[i].product['price'] * cart[i].quantity}</span>
@@ -167,4 +179,6 @@ function displayTotalAmountCart(cart) {
 //     <span><strong>${total}</strong></span>
 // </li>`;
      return renderProduct;
+        }
+        
 }
