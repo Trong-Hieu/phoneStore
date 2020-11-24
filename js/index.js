@@ -56,7 +56,6 @@ var carouselBackground = setInterval(function() {
 // }, 5000);
 
 
-
 // var listNewProducts = document.getElementById("list-new-products");
 
 // listNewProducts.onload = function(e) {

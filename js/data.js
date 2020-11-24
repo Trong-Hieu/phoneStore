@@ -322,7 +322,12 @@ var listPhone = function() {
 
 listPhone();
 
-
+function searchProduct() {
+  var searchInput = document.querySelector('.header__navbar__menu-item--search__input').value;
+  if(searchInput != "") {
+    window.location = `shop-main.html?nameSearch=${searchInput}`;    
+  } 
+}
 
 
 
