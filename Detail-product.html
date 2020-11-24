@@ -7,9 +7,9 @@
     <title>Phone Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="/css/grid.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/base.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
     <!-- Roboto Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;display=swap">
@@ -26,48 +26,47 @@
 <body onload="detailProduct()" >
     <header>
         <nav class="header__navbar">
-            <div class="grid wide">
-                <div class="header__navbar__content">
-                    <div class="header__navbar__logo">
-                        <a href="index.html">
-                            <img src="/images/logo@2x.png" alt="">
+          <div class="grid wide">
+            <div class="header__navbar__content">
+              <div class="header__navbar__logo">
+                <a href="index.html">
+                  <img src="/images/logo@2x.png" alt="">
+                </a>
+              </div>
+              <div class="header__navbar__menu">
+                <ul class="header__navbar__menu-list">
+                  <li class="header__navbar__menu-item--text-underline"><a href="index.html">Home</a></li>
+                  <li class="header__navbar__menu-item"><a href="shop-main.html">Shop</a></li>
+                  <li class="header__navbar__menu-item"><a href="#">Blog</a></li>
+                  <li class="header__navbar__menu-item header__navbar__menu-item--has-qr">
+                    <label href="">Download App</label>
+                    <div class="header__navbar__menu-item__qr">
+                      <img src="./images/qr_code.png" alt="QR code" class="header__navbar__menu-item__qr-img">
+                      <div class="header__navbar__menu-item__qr-apps">
+                        <a href="" class="header__navbar__menu-item__qr-link">
+                          <img src="./images/google_play.png" alt="Google Play" class="header__navbar__menu-item__qr-download-img">
                         </a>
+                        <a href="" class="header__navbar__menu-item__qr-link">
+                          <img src="./images/app_store.png" alt="App Store" class="header__navbar__menu-item__qr-download-img">
+                        </a>
+                      </div>
                     </div>
-                    <div class="header__navbar__menu">
-                        <ul class="header__navbar__menu-list">
-                            <li class="header__navbar__menu-item--text-underline"><a href="index.html">Home</a></li>
-                            <li class="header__navbar__menu-item"><a href="shop-main.html">Shop</a></li>
-                            <li class="header__navbar__menu-item"><a href="#">Blog</a></li>
-                            <li class="header__navbar__menu-item header__navbar__menu-item--has-qr">
-                                <label href="">Download App</label>
-                                <div class="header__navbar__menu-item__qr">
-                                    <img src="./images/qr_code.png" alt="QR code"
-                                        class="header__navbar__menu-item__qr-img">
-                                    <div class="header__navbar__menu-item__qr-apps">
-                                        <a href="" class="header__navbar__menu-item__qr-link">
-                                            <img src="./images/google_play.png" alt="Google Play"
-                                                class="header__navbar__menu-item__qr-download-img">
-                                        </a>
-                                        <a href="" class="header__navbar__menu-item__qr-link">
-                                            <img src="./images/app_store.png" alt="App Store"
-                                                class="header__navbar__menu-item__qr-download-img">
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="header__navbar__menu-item"><a href="contact-us.html">Contact Us</a></li>
-                        </ul>
-                        <ul class="header__navbar__menu-list">
-                            <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-search"></i></a></li>
-                            <li class="header__navbar__menu-item"><a href="Cart-product.html"><i class="fas fa-shopping-cart"></i></a>
-                            </li>
-                            <li class="header__navbar__menu-item"><a href="login-regis.html">Sign In</a></li>
-                        </ul>
-                    </div>
-                </div>
+                  </li>
+                  <li class="header__navbar__menu-item"><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+                <ul class="header__navbar__menu-list">
+                  <li class="header__navbar__menu-item header__navbar__menu-item--search">
+                    <input type="text" name="" class="header__navbar__menu-item--search__input" placeholder="Search..." required/>
+                    <a class="header__navbar__menu-item--search__icon" onclick="searchProduct()"><i class="fas fa-search"></i></a>
+                  </li>
+                  <li class="header__navbar__menu-item"><a href="Cart-product.html"><i class="fas fa-shopping-cart"></i></a></li>
+                  <li class="header__navbar__menu-item"><a href="login-regis.html">Sign In</a></li>
+                </ul>
+              </div>
             </div>
+          </div>
         </nav>
-    </header>
+      </header>
     <div class="container">
         <!--Section: Block Content-->
         <section class="mb-5">
@@ -484,8 +483,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
         integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
         crossorigin="anonymous"></script>
-    <script src="/js/data.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/index.js"></script>
     <!-- <script src="/js/contact-us.js"></script> -->
 
     <script src="js/Detail-product.js"></script>

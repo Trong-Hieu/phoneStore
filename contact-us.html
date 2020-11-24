@@ -6,9 +6,9 @@
   <title>Phone Store</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <link rel="stylesheet" href="/css/grid.css">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="./css/grid.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/base.css">
 </head>
 <body>
   <header>
@@ -42,7 +42,10 @@
               <li class="header__navbar__menu-item--text-underline"><a href="contact-us.html">Contact Us</a></li>
             </ul>
             <ul class="header__navbar__menu-list">
-              <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-search"></i></a></li>
+              <li class="header__navbar__menu-item header__navbar__menu-item--search">
+                <input type="text" name="" class="header__navbar__menu-item--search__input" placeholder="Search..." required/>
+                <a class="header__navbar__menu-item--search__icon" onclick="searchProduct()"><i class="fas fa-search"></i></a>
+              </li>
               <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
               <li class="header__navbar__menu-item"><a href="#">Sign In</a></li>
             </ul>
@@ -173,6 +176,7 @@
     </div>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
-  <script src="/js/contact-us.js"></script>
+  <script src="./js/contact-us.js"></script>
+  <script src="./js/data.js"></script>
 </body>
 </html>
