@@ -4,6 +4,13 @@ function checkout(){
         document.getElementById("lengthCart").innerHTML = cart.length;
         document.getElementById("yourCart").innerHTML = displayCart(cart);
     }
+    if (localStorage.getItem("cart") != null) {
+        cart = JSON.parse(localStorage.getItem("cart"));
+        document.getElementById("length-Cart").innerHTML = cart.length;
+      }
+      if(cart.length<1){
+        document.getElementById("length-Cart").style.display = "none";
+      }
 }
 function displayCart(cart){
     var total=0;
@@ -100,7 +107,7 @@ function addOrder(){
         status: status,
         dateOder: dateOder,
     });
-    
+    cart.clear();
     localStorage.setItem("order", JSON.stringify(order));
     alert("Da Order thanh cong")
 }

@@ -4,7 +4,11 @@ function listCart() {
         document.getElementById("length-cart").innerHTML = cart.length;
         document.getElementById("cart-list").innerHTML = displayListCart(cart).join("");
         document.getElementById("total-amount").innerHTML = displayTotalAmountCart(cart);
+        document.getElementById("length-Cart").innerHTML = cart.length;
     }
+    if(cart.length<1){
+        document.getElementById("length-Cart").style.display = "none";
+      }
 }
 
 var total = 0;

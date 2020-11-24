@@ -63,7 +63,9 @@
                                 <a class="header__navbar__menu-item--search__icon" onclick="searchProduct()"><i class="fas fa-search"></i></a>
                               </li>
                             <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-shopping-cart"></i></a>
+                                
                             </li>
+                            <span class="badge badge-secondary badge-pill" id="length-Cart" style="margin-left: 5px;margin-bottom: 8px;padding-top: 2px;font-size: large ;text-align: center;width: 30px;border-radius: 50%;background-color: white ;"></span>
                             <li class="header__navbar__menu-item"><a href="#">Sign In</a></li>
                         </ul>
                     </div>
@@ -220,7 +222,7 @@
                     </div>
                     <hr class="mb-4">
                     <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" type="button" onclick="sendEmail(),saveOrder()">Checkout</button>
+                    <button class="btn btn-primary btn-lg btn-block" type="button" onclick="sendEmail(),addOrder()">Checkout</button>
                 </form>
             </div>
         </div>

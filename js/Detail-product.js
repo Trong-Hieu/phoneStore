@@ -22,6 +22,13 @@ function detailProduct() {
         document.getElementById("relativeProduct").innerHTML = displayRelativeProduct(phone,id).join("");
         document.getElementById("relative2Product").innerHTML = displayRelative2Product(phone,id).join("");
     }
+    if (localStorage.getItem("cart") != null) {
+        cart = JSON.parse(localStorage.getItem("cart"));
+        document.getElementById("length-Cart").innerHTML = cart.length;
+      }
+      if(cart.length<1){
+        document.getElementById("length-Cart").style.display = "none";
+      }
 }
 function displayImageProduct(phone,id) {
     var renderProduct = phone.map((element, index) => {

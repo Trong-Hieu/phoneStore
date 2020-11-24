@@ -27,6 +27,13 @@ function listProducts() {
       }
     }
   } 
+  if (localStorage.getItem("cart") != null) {
+    cart = JSON.parse(localStorage.getItem("cart"));
+    document.getElementById("length-Cart").innerHTML = cart.length;
+  }
+  if(cart.length<1){
+    document.getElementById("length-Cart").style.display = "none";
+  }
   // danh sửa login - regis
   var currentUser = JSON.parse(localStorage.getItem("currentUser"))
   if(currentUser){
