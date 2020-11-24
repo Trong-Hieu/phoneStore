@@ -74,11 +74,6 @@ function addOrder(){
     }
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
-    var userName = document.getElementById("username").value;
-    if(userName != currentUser.name){
-        alert(" Moi nhap lai ten tai khoan");
-        return;
-    }
     var email = document.getElementById("email").value;
     var address = document.getElementById("address").value;
     var address2 = document.getElementById("address2").value;
@@ -90,7 +85,6 @@ function addOrder(){
     var info = {
         firstName: firstName,
         lastName: lastName,
-        userName: userName,
         email: email,
         address: address,
         address2: address2,
@@ -107,7 +101,8 @@ function addOrder(){
         status: status,
         dateOder: dateOder,
     });
-    cart.clear();
+    cart = [];
+    localStorage.setItem("cart",JSON.stringify(cart));
     localStorage.setItem("order", JSON.stringify(order));
     alert("Da Order thanh cong")
 }
