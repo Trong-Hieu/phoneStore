@@ -40,58 +40,67 @@ function displayCart(cart){
 }
 function sendEmail(){
     Email.send({
-        Host : "smtp.gmail.com",
+        Host : "smtp.elasticemail.com",
         Username : "taidn303@gmail.com",
-        Password : "Tai123578946",
+        Password : "AC4EB9FC468BFC30BEA91675436CDAE6ED78",
         To : 'leshinno1@gmail.com',
         From : "taidn303@gmail.com",
         Subject : "This is the subject",
-        Body : "dcasdasd"
+        Body : ``
     }).then(
       message => alert(message)
     );
 }
 function addOrder(){
-    var quantity = parseInt( document.getElementById("quantity").value);
-    var  product;
-    var cond;
-    if (localStorage.getItem("phone") != null) {
-        phone = JSON.parse(localStorage.getItem("phone"));
-    }
-
     if(localStorage.getItem("cart") != null) {
         cart = JSON.parse(localStorage.getItem("cart"));  
         
-      } else{
-          var cart = [];
       }
-
-    for ( i = 0; i < phone.length; i++) {
-        if(phone[i].id == id){
-            product = phone[i];
-        }
-    }
-    if(cart.length<0){
-        cart.push({
-            id: cart.length+1,
-            product: product,
-            quantity: quantity,
-        });
+      if(localStorage.getItem("currentUser") != null) {
+        currentUser = JSON.parse(localStorage.getItem("currentUser"));  
+        
+      } 
+    if(localStorage.getItem("order") !=null){
+        order = JSON.parse(localStorage.getItem("order"));
     }else{
-        for ( i = 0; i < cart.length; i++) {
-            if(cart[i].product["id"] == product.id){
-                cart[i].quantity += quantity;
-                cond=true;
-            }
-        }
-        if(!cond){
-            cart.push({
-                id: cart.length+1,
-                product: product,
-                quantity: quantity,
-            });
-        }
+        var order = [];
     }
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Da them san pham vao gio hang")
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var userName = document.getElementById("username").value;
+    if(userName != currentUser.name){
+        alert(" Moi nhap lai ten tai khoan");
+        return;
+    }
+    var email = document.getElementById("email").value;
+    var address = document.getElementById("address").value;
+    var address2 = document.getElementById("address2").value;
+    var country = document.getElementById("country").value;
+    var state = document.getElementById("state").value;
+    var zip = document.getElementById("zip").value;
+    var status = "unship";
+    var dateOder = Date.now();
+    var info = {
+        firstName: firstName,
+        lastName: lastName,
+        userName: userName,
+        email: email,
+        address: address,
+        address2: address2,
+        country: country,
+        state: state,
+        zip: zip,
+    };
+    
+    order.push({
+        id:  order.length+1,
+        currentUser: currentUser.name,
+        cart: cart,
+        info: info,
+        status: status,
+        dateOder: dateOder,
+    });
+    
+    localStorage.setItem("order", JSON.stringify(order));
+    alert("Da Order thanh cong")
 }
