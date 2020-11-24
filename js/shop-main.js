@@ -37,17 +37,23 @@ function listProducts() {
   else{
      document.getElementById("dropUser").style.display = "none"
      document.getElementById("login").style.display = "block"
+     document.getElementById("length-Cart").style.display = "none"
   } 
-  if (localStorage.getItem("cart") != null) {
-    cart = JSON.parse(localStorage.getItem("cart"));
-    for(i = 0;i<cart.length;i++){
-      if(cart[i].userName == currentUser.usermame) count ++;
+  if(currentUser != null){
+    if (localStorage.getItem("cart") != null) {
+      cart = JSON.parse(localStorage.getItem("cart"));
+      for(i = 0;i<cart.length;i++){
+        if(cart[i].userName == currentUser.username) {
+          count ++;
+          document.getElementById("length-Cart").style.display = "block";
+        };
+    }
+    if(count==0){
+      document.getElementById("length-Cart").style.display = "none";
+    }else document.getElementById("length-Cart").innerHTML = count;
   }
-    document.getElementById("length-Cart").innerHTML = count;
   }
-  if(count==0){
-    document.getElementById("length-Cart").style.display = "none";
-  }
+  
   
   
 }

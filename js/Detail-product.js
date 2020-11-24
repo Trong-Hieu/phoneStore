@@ -22,15 +22,23 @@ function detailProduct() {
         document.getElementById("relativeProduct").innerHTML = displayRelativeProduct(phone,id).join("");
         document.getElementById("relative2Product").innerHTML = displayRelative2Product(phone,id).join("");
     }
-    if (localStorage.getItem("cart") != null) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-        for(i = 0;i<cart.length;i++){
-            if(cart[i].userName == currentUser.username) count ++;
+    var currentUser
+    if(localStorage.getItem("currentUser")!=null){
+        currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    }
+    if(currentUser != null){
+        if (localStorage.getItem("cart") != null) {
+          cart = JSON.parse(localStorage.getItem("cart"));
+          for(i = 0;i<cart.length;i++){
+            if(cart[i].userName == currentUser.username) {
+              count ++;
+              document.getElementById("length-Cart").style.display = "block";
+            };
         }
-        document.getElementById("length-Cart").innerHTML = count;
+        if(count==0){
+          document.getElementById("length-Cart").style.display = "none";
+        }else document.getElementById("length-Cart").innerHTML = count;
       }
-      if(count ==0){
-        document.getElementById("length-Cart").style.display = "none";
       }
 }
 function displayImageProduct(phone,id) {
@@ -204,7 +212,8 @@ function displayInfoProduct(phone,id){
 }
 
 function addCart(id){
-    var quantity = parseInt( document.getElementById("quantity").value);
+    if(localStorage.getItem("currentUser")!=null){
+        var quantity = parseInt( document.getElementById("quantity").value);
     var  product;
     var cond;
     if (localStorage.getItem("phone") != null) {
@@ -248,9 +257,10 @@ function addCart(id){
             });
         }
     }
-    
-   
-    
     localStorage.setItem("cart", JSON.stringify(cart));
     alert("Da them san pham vao gio hang")
+    }else{
+        alert("Moi ban dang nhap")
+    }
+    
 }

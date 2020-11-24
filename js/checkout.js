@@ -1,23 +1,29 @@
 var count =0;
 function checkout(){
+    var currentUser
     if (localStorage.getItem("currentUser") != null) {
         currentUser = JSON.parse(localStorage.getItem("currentUser"));
     }
-    if (localStorage.getItem("cart") != null) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-        for(i = 0;i<cart.length;i++){
-            if(cart[i].userName == currentUser.username) count ++;
+    if(currentUser != null){
+        if (localStorage.getItem("cart") != null) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+            document.getElementById("yourCart").innerHTML = displayCart(cart,currentUser);
+          for(i = 0;i<cart.length;i++){
+            if(cart[i].userName == currentUser.username) {
+              count ++;
+              document.getElementById("length-Cart").style.display = "block";
+            };
         }
         document.getElementById("lengthCart").innerHTML = count;
-        document.getElementById("yourCart").innerHTML = displayCart(cart,currentUser);
-        document.getElementById("length-Cart").innerHTML = count;
-    }
-    if(count){
-        document.getElementById("length-Cart").style.display = "none";
+        if(count==0){
+          document.getElementById("length-Cart").style.display = "none";
+        }else document.getElementById("length-Cart").innerHTML = count;
       }
+      }
+      
 }
+var total=0;
 function displayCart(cart,currentUser){
-    var total=0;
     var renderProduct=``;
     for(i=0;i<cart.length;i++){
         if(cart[i].userName == currentUser.username){
@@ -57,10 +63,10 @@ function sendEmail(){
         Host : "smtp.elasticemail.com",
         Username : "taidn303@gmail.com",
         Password : "AC4EB9FC468BFC30BEA91675436CDAE6ED78",
-        To : 'leshinno1@gmail.com',
+        To : document.getElementById("email").value,
         From : "taidn303@gmail.com",
-        Subject : "This is the subject",
-        Body : ``
+        Subject : "Email thông tin Order",
+        Body : "Tong tien ban can chuan bi de tra: "+ total,
     }).then(
       message => alert(message)
     );
