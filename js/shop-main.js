@@ -27,6 +27,17 @@ function listProducts() {
       }
     }
   } 
+  // danh sửa login - regis
+  var currentUser = JSON.parse(localStorage.getItem("currentUser"))
+  if(currentUser){
+       document.getElementById("dropUser").textContent = currentUser.name 
+       document.getElementById("dropUser").style.display = "block"
+       document.getElementById("login").style.display = "none"
+  }
+  else{
+     document.getElementById("dropUser").style.display = "none"
+     document.getElementById("login").style.display = "block"
+  } 
 }
 
 function listAllProducts(phone) {
@@ -102,6 +113,12 @@ function listProductsFromCategory(phone, nameCategory) {
   });
   return renderProducts;
 }
+//danh thêm sự kiện
+function logOut(){
+  localStorage.removeItem("currentUser")
+  window.onload()
+}
+
 
 function listProductsFromSearch(phone, nameSearch) {
   var renderProducts = phone.map((element, index) => {

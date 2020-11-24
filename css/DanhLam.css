@@ -1,134 +1,27 @@
-#nav1{
-  height: 6rem;
-  display: flex;
-  align-items: center;
-}
-#nav2{
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  background-color: #f0d117;
-}
-footer{
-  height: 1rem;
-  display: flex;
-  align-items: center;
-}
-#div1{
-  width: 75%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#div2{
-  width: 82%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#anhnen1 {
-  background: URL(hinh1.jpg); 
-  background-size: cover ; 
-  height: 750px;
-}
-#anhnen2 {
-  background: URL(hinh1.jpg); 
-  background-size: cover ; 
-  height : auto;
-}
-#anhnenadmin{
-  background: URL(hinh1.jpg); 
-  background-size: cover ; 
-  height: 750px;
-}
-.form1{
-  width: 550px; 
-  height: 550px;
-  margin-left: 1200px; 
-  text-align: center; 
-  background-color: white; 
-  position: absolute; 
-  top: 200px;
-  border-radius: 7px;
-}
-#input1{
-  width: 450px;
-  margin: 35px 50px;
-  height: 50px;
-}
-a{
-  color: black;
-}
-a:hover {
-  color : rgb(235, 211, 0);
-  text-decoration: none;
-}
-i:hover{
-  color: white;
-}
+/* danh sửa css  */
 .dropdown {
   position: relative;
   display: inline-block;
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
-  background:URL(qr_code.png) ;
-  width: 200px;
-  height: 200px;
-  padding: 12px 16px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  border-radius: 15px;
 }
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
-.dropbtn{  
-  font-size: 30px;
-  color: black;
-  position: relative;
-  top: -4px;
-}
-.dropbtn:hover{
-  color: white;
-  text-decoration: none;
 
-}
-.dropdown-menu{
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  width: 300px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index:1;
-}
-.dropdown-menu a{
-  color: black;
-  padding: 12px 16px;
-  display: block;
-}
-.dropdown-menu a:hover {
-  background-color: #f1f1f1;
-  text-decoration: none;
-  color: black;
-}
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-.lienhe{
-  width: 75px;
-  height: 320px;
-  position: fixed;
-  top: 310px;
-  right: 30px;
-  
-}
-#anhlienhe{
-  width: 75px; 
-  height: 75px;
-  border-radius: 50%;
-}
