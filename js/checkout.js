@@ -20,7 +20,6 @@ function checkout(){
         }else document.getElementById("length-Cart").innerHTML = count;
       }
       }
-<<<<<<< HEAD
       var currentUser = JSON.parse(localStorage.getItem("currentUser"))
       if(currentUser){
            document.getElementById("dropUser").textContent = currentUser.name 
@@ -31,9 +30,6 @@ function checkout(){
          document.getElementById("dropUser").style.display = "none"
          document.getElementById("login").style.display = "block"
       }
-=======
-      
->>>>>>> master
 }
 var total=0;
 function displayCart(cart,currentUser){
