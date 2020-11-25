@@ -216,10 +216,11 @@ function addCart(id){
     }
 
   for ( i = 0; i < phone.length; i++) {
-      if(phone[i].id == id){
+      if(phone[i].id == id ){
+        if(phone[i].amount>0){
           phone[i].amount -= quantity;
           product = phone[i];
-          product.amount = quantity;
+        }else{alert("San pham da het hang")}
       }
   }
   if(cart.length<0){
