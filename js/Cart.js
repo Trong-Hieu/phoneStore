@@ -9,6 +9,16 @@ function listCart() {
     if(cart.length<1){
         document.getElementById("length-Cart").style.display = "none";
       }
+      var currentUser = JSON.parse(localStorage.getItem("currentUser"))
+      if(currentUser){
+           document.getElementById("dropUser").textContent = currentUser.name 
+           document.getElementById("dropUser").style.display = "block"
+           document.getElementById("login").style.display = "none"
+      }
+      else{
+         document.getElementById("dropUser").style.display = "none"
+         document.getElementById("login").style.display = "block"
+      }
 }
 
 var total = 0;

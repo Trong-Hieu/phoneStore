@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
+    <link rel="stylesheet" href="./css/DanhLam.css">
     <!-- Roboto Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;display=swap">
     <!-- Font Awesome -->
@@ -61,7 +62,14 @@
                   </li>
                   <li class="header__navbar__menu-item"><a href="Cart-product.html"><i class="fas fa-shopping-cart"></i></a></li>
                   <span class="badge badge-secondary badge-pill" id="length-Cart" style="margin-left: 5px;margin-bottom: 8px;padding-top: 2px;font-size: large ;text-align: center;width: 30px;border-radius: 50%;background-color: white ;"></span>
-                  <li class="header__navbar__menu-item"><a href="login-regis.html">Sign In</a></li>
+                  <li class="header__navbar__menu-item"><a href="login-regis.html" id="login">Sign In</a></li>
+                  <li class="header__navbar__menu-item"><div class="dropdown">
+                    <a href="" id="dropUser">UserName</a><br>
+                    <div class="dropdown-content">
+                    <a href="#">Profile User</a>                                                                       
+                    <a href="#" onclick="logOut()">Log Out</a>
+                    </div>
+                  </div></li>
                 </ul>
               </div>
             </div>
