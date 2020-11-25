@@ -145,7 +145,7 @@ function listNewProducts(phone) {
                 </div>
                 <div class="container__homepage__product__review">25 Review</div>
               </div>
-              <div class="container__homepage__product__function" onclick="addCart(3)">
+              <div class="container__homepage__product__function" onclick="addCart(${element.id})">
                 <i class="fas fa-cart-plus"></i>
               </div>
             </div>
@@ -185,7 +185,7 @@ function listBestSellers(phone) {
                 </div>
                 <div class="container__homepage__product__review">25 Review</div>
               </div>
-              <div class="container__homepage__product__function" onclick="addCart(3)">
+              <div class="container__homepage__product__function" onclick="addCart(${element.id})">
                 <i class="fas fa-cart-plus"></i>
               </div>
             </div>
@@ -197,6 +197,63 @@ function listBestSellers(phone) {
   });
   return renderProducts;
 }
+function addCart(id){
+  if(localStorage.getItem("currentUser")!=null){
+      var quantity = 1;
+  var  product;
+  var cond;
+  if (localStorage.getItem("phone") != null) {
+      phone = JSON.parse(localStorage.getItem("phone"));
+  }
+  if (localStorage.getItem("currentUser") != null) {
+      currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  }
+  if(localStorage.getItem("cart") != null) {
+      cart = JSON.parse(localStorage.getItem("cart"));  
+      
+    } else{
+        var cart = [];
+    }
+
+  for ( i = 0; i < phone.length; i++) {
+      if(phone[i].id == id){
+          phone[i].amount -= quantity;
+          product = phone[i];
+          product.amount = quantity;
+      }
+  }
+  if(cart.length<0){
+      cart.push({
+          id: cart.length+1,
+          userName: currentUser.username,
+          product: product,
+          quantity: quantity,
+      });
+  }else{
+      for ( i = 0; i < cart.length; i++) {
+          if(cart[i].product["id"] == product.id){
+              cart[i].quantity += quantity;
+              cond=true;
+          }
+      }
+      if(!cond){
+          cart.push({
+              id: cart.length+1,
+              userName: currentUser.username,
+              product: product,
+              quantity: quantity,
+          });
+      }
+  }
+  localStorage.setItem("phone",JSON.stringify(phone));
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Da them san pham vao gio hang")
+  }else{
+      alert("Moi ban dang nhap")
+  }
+  
+}
+
 // danh thêm 
 function logOut(){
   localStorage.removeItem("currentUser")

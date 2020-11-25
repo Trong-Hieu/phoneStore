@@ -241,7 +241,9 @@ function addCart(id){
 
     for ( i = 0; i < phone.length; i++) {
         if(phone[i].id == id){
+            phone[i].amount -= quantity;
             product = phone[i];
+            product.amount = quantity;
         }
     }
     if(cart.length<0){
@@ -267,6 +269,7 @@ function addCart(id){
             });
         }
     }
+    localStorage.setItem("phone",JSON.stringify(phone));
     localStorage.setItem("cart", JSON.stringify(cart));
     alert("Da them san pham vao gio hang")
     }else{
