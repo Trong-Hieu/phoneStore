@@ -1,16 +1,26 @@
+var count =0;
 function checkout(){
-    if (localStorage.getItem("cart") != null) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-        document.getElementById("lengthCart").innerHTML = cart.length;
-        document.getElementById("yourCart").innerHTML = displayCart(cart);
+    var currentUser
+    if (localStorage.getItem("currentUser") != null) {
+        currentUser = JSON.parse(localStorage.getItem("currentUser"));
     }
-    if (localStorage.getItem("cart") != null) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-        document.getElementById("length-Cart").innerHTML = cart.length;
+    if(currentUser != null){
+        if (localStorage.getItem("cart") != null) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+            document.getElementById("yourCart").innerHTML = displayCart(cart,currentUser);
+          for(i = 0;i<cart.length;i++){
+            if(cart[i].userName == currentUser.username) {
+              count ++;
+              document.getElementById("length-Cart").style.display = "block";
+            };
+        }
+        document.getElementById("lengthCart").innerHTML = count;
+        if(count==0){
+          document.getElementById("length-Cart").style.display = "none";
+        }else document.getElementById("length-Cart").innerHTML = count;
       }
-      if(cart.length<1){
-        document.getElementById("length-Cart").style.display = "none";
       }
+<<<<<<< HEAD
       var currentUser = JSON.parse(localStorage.getItem("currentUser"))
       if(currentUser){
            document.getElementById("dropUser").textContent = currentUser.name 
@@ -21,19 +31,25 @@ function checkout(){
          document.getElementById("dropUser").style.display = "none"
          document.getElementById("login").style.display = "block"
       }
+=======
+      
+>>>>>>> master
 }
-function displayCart(cart){
-    var total=0;
+var total=0;
+function displayCart(cart,currentUser){
     var renderProduct=``;
     for(i=0;i<cart.length;i++){
-        total+=cart[i].product['price'] * cart[i].quantity;
-        renderProduct += `<li class="list-group-item d-flex justify-content-between lh-condensed">
-        <div>
-            <h6 class="my-0">${cart[i].product['name']}</h6>
-            <small class="text-muted">Quantity: ${cart[i].quantity}</small>
-        </div>
-        <span class="text-muted">${cart[i].product['price'] * cart[i].quantity}</span>
-    </li>`
+        if(cart[i].userName == currentUser.username){
+            total+=cart[i].product['price'] * cart[i].quantity;
+            renderProduct += `<li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+                <h6 class="my-0">${cart[i].product['name']}</h6>
+                <small class="text-muted">Quantity: ${cart[i].quantity}</small>
+            </div>
+            <span class="text-muted">${cart[i].product['price'] * cart[i].quantity}</span>
+        </li>`
+        }
+        
     }
     renderProduct +=`<li class="list-group-item d-flex justify-content-between">
     <span>Total (VND)</span>
@@ -60,10 +76,10 @@ function sendEmail(){
         Host : "smtp.elasticemail.com",
         Username : "taidn303@gmail.com",
         Password : "AC4EB9FC468BFC30BEA91675436CDAE6ED78",
-        To : 'leshinno1@gmail.com',
+        To : document.getElementById("email").value,
         From : "taidn303@gmail.com",
-        Subject : "This is the subject",
-        Body : ``
+        Subject : "Email thông tin Order",
+        Body : "Tong tien ban can chuan bi de tra: "+ total,
     }).then(
       message => alert(message)
     );
@@ -91,7 +107,8 @@ function addOrder(){
     var state = document.getElementById("state").value;
     var zip = document.getElementById("zip").value;
     var status = "unship";
-    var dateOder = Date.now();
+    var dateOder = new Date();
+    
     var info = {
         firstName: firstName,
         lastName: lastName,

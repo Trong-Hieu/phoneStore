@@ -13,7 +13,7 @@ function getUrlParameter(sParam) {
         }
     }
 };
-
+var count =0;
 function detailProduct() {
     if (localStorage.getItem("phone") != null) {
         phone = JSON.parse(localStorage.getItem("phone"));
@@ -22,12 +22,23 @@ function detailProduct() {
         document.getElementById("relativeProduct").innerHTML = displayRelativeProduct(phone,id).join("");
         document.getElementById("relative2Product").innerHTML = displayRelative2Product(phone,id).join("");
     }
-    if (localStorage.getItem("cart") != null) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-        document.getElementById("length-Cart").innerHTML = cart.length;
+    var currentUser
+    if(localStorage.getItem("currentUser")!=null){
+        currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    }
+    if(currentUser != null){
+        if (localStorage.getItem("cart") != null) {
+          cart = JSON.parse(localStorage.getItem("cart"));
+          for(i = 0;i<cart.length;i++){
+            if(cart[i].userName == currentUser.username) {
+              count ++;
+              document.getElementById("length-Cart").style.display = "block";
+            };
+        }
+        if(count==0){
+          document.getElementById("length-Cart").style.display = "none";
+        }else document.getElementById("length-Cart").innerHTML = count;
       }
-      if(cart.length<1){
-        document.getElementById("length-Cart").style.display = "none";
       }
       var currentUser = JSON.parse(localStorage.getItem("currentUser"))
       if(currentUser){
@@ -211,13 +222,16 @@ function displayInfoProduct(phone,id){
 }
 
 function addCart(id){
-    var quantity = parseInt( document.getElementById("quantity").value);
+    if(localStorage.getItem("currentUser")!=null){
+        var quantity = parseInt( document.getElementById("quantity").value);
     var  product;
     var cond;
     if (localStorage.getItem("phone") != null) {
         phone = JSON.parse(localStorage.getItem("phone"));
     }
-
+    if (localStorage.getItem("currentUser") != null) {
+        currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    }
     if(localStorage.getItem("cart") != null) {
         cart = JSON.parse(localStorage.getItem("cart"));  
         
@@ -233,6 +247,7 @@ function addCart(id){
     if(cart.length<0){
         cart.push({
             id: cart.length+1,
+            userName: currentUser.username,
             product: product,
             quantity: quantity,
         });
@@ -246,14 +261,16 @@ function addCart(id){
         if(!cond){
             cart.push({
                 id: cart.length+1,
+                userName: currentUser.username,
                 product: product,
                 quantity: quantity,
             });
         }
     }
-    
-   
-    
     localStorage.setItem("cart", JSON.stringify(cart));
     alert("Da them san pham vao gio hang")
+    }else{
+        alert("Moi ban dang nhap")
+    }
+    
 }

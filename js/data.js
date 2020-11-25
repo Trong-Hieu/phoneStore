@@ -12,7 +12,7 @@ var phone = [
     genre: "New product",
   },
   {
-    id: 1,
+    id: 1,  
     name: "iphone 11",
     color: "",
     price: "15800000",
@@ -31,7 +31,7 @@ var phone = [
     category: "iPhone",
     amount: 9,
     image:"https://didongviet.vn/pub/media/catalog/product//i/p/iphone-11-pro-xam-didongviet_11.jpg",
-    genre: "",
+    genre: "On-sale",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ var phone = [
     category: "iPhone",
     amount: 8,
     image:"https://didongviet.vn/pub/media/catalog/product//5/7/5758686-min_1.jpg",
-    genre: "",
+    genre: "Best seller",
 
   },
   {
@@ -54,7 +54,7 @@ var phone = [
     category: "iPhone",
     amount: 2,
     image:"https://didongviet.vn/pub/media/catalog/product//i/p/iphone-x-64gb_2.jpg",
-    genre: "",
+    genre: "On-sale",
 
   },
   {
@@ -77,7 +77,7 @@ var phone = [
     category: "iPhone",
     amount: 12,
     image:"https://didongviet.vn/pub/media/catalog/product//i/p/iphone-7-vang-didongviet_1_9.jpg",
-    genre: "",
+    genre: "On-sale",
   },
   {
     id: 7,
@@ -88,7 +88,7 @@ var phone = [
     category: "iPhone",
     amount: 43,
     image:"https://didongviet.vn/pub/media/catalog/product//i/p/iphone-7-plus_3.jpg",
-    genre: "",
+    genre: "Best seller",
   },
   {
     id: 8,
@@ -110,7 +110,7 @@ var phone = [
     category: "Samsung",
     amount: 43,
     image:"https://didongviet.vn/pub/media/catalog/product//s/a/samsung-galaxy-s20-fan-edition_1_.jpg",
-    genre: "",
+    genre: "New product",
   },
   {
     id: 10,
@@ -121,7 +121,7 @@ var phone = [
     category: "Samsung",
     amount: 43,
     image:"https://didongviet.vn/pub/media/catalog/product//s/a/samsung-galaxy-a11_2.jpg",
-    genre: "",
+    genre: "Best seller",
   },
   {
     id: 11,
@@ -149,23 +149,23 @@ var phone = [
     id: 13,
     name: "Oppo A12",
     color: "",
-    price: "3690000",
+    price: "3590000",
     oldPrice: "3690000",
     category: "Oppo",
     amount: 43,
     image:"https://didongviet.vn/pub/media/catalog/product//o/p/oppo-a12-64gb.jpg",
-    genre: "",
+    genre: "On-sale",
   },
   {
     id: 14,
     name: "Oppo A93",
     color: "",
-    price: "6290000",
+    price: "6190000",
     oldPrice: "6290000",
     category: "Oppo",
     amount: 43,
     image:"https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/o/p/oppo-a93-trang-didongviet_1.jpg",
-    genre: "",
+    genre: "On-sale",
   },
   {
     id: 15,
@@ -297,7 +297,7 @@ var phone = [
     category: "realme",
     amount: 43,
     image:"https://didongviet.vn/pub/media/catalog/product//r/e/realme-c11.jpg",
-    genre: "",
+    genre: "Best seller",
   },
   {
     id: 27,
@@ -308,7 +308,7 @@ var phone = [
     category: "realme",
     amount: 43,
     image:"https://didongviet.vn/pub/media/catalog/product/cache/926507dc7f93631a094422215b778fe0/r/e/realme-6i-4gb-128gb_1.jpg",
-    genre: "",
+    genre: "New product",
   },
 ];
 
