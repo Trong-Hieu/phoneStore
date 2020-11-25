@@ -199,7 +199,7 @@ function listBestSellers(phone) {
 }
 function addCart(id){
   if(localStorage.getItem("currentUser")!=null){
-      var quantity = 1;
+  var quantity = 1;
   var  product;
   var cond;
   if (localStorage.getItem("phone") != null) {
