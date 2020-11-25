@@ -167,6 +167,7 @@ function edit(id){
 function Delete(id){
 
   var conf = confirm("Are you sure to delete this product?");
+  
   if (conf){
     products = JSON.parse(localStorage.getItem("phone")); 
     products.splice(id, 1)
