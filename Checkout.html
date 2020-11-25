@@ -63,7 +63,9 @@
                                 <a class="header__navbar__menu-item--search__icon" onclick="searchProduct()"><i class="fas fa-search"></i></a>
                               </li>
                             <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-shopping-cart"></i></a>
+                                
                             </li>
+                            <span class="badge badge-secondary badge-pill" id="length-Cart" style="margin-left: 5px;margin-bottom: 8px;padding-top: 2px;font-size: large ;text-align: center;width: 30px;border-radius: 50%;background-color: white ;"></span>
                             <li class="header__navbar__menu-item"><a href="#">Sign In</a></li>
                         </ul>
                     </div>
@@ -144,18 +146,7 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="username">Username</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
-                            </div>
-                            <input type="text" class="form-control" id="username" placeholder="Username" required>
-                            <div class="invalid-feedback" style="width: 100%;">
-                                Your username is required.
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <div class="mb-3">
                         <label for="email">Email <span class="text-muted">(Optional)</span></label>
@@ -220,7 +211,7 @@
                     </div>
                     <hr class="mb-4">
                     <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" type="button" onclick="sendEmail(),saveOrder()">Checkout</button>
+                    <button class="btn btn-primary btn-lg btn-block" type="button" onclick="sendEmail(),addOrder()">Checkout</button>
                 </form>
             </div>
         </div>

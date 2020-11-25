@@ -1,22 +1,42 @@
+var count =0;
 function checkout(){
-    if (localStorage.getItem("cart") != null) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-        document.getElementById("lengthCart").innerHTML = cart.length;
-        document.getElementById("yourCart").innerHTML = displayCart(cart);
+    var currentUser
+    if (localStorage.getItem("currentUser") != null) {
+        currentUser = JSON.parse(localStorage.getItem("currentUser"));
     }
+    if(currentUser != null){
+        if (localStorage.getItem("cart") != null) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+            document.getElementById("yourCart").innerHTML = displayCart(cart,currentUser);
+          for(i = 0;i<cart.length;i++){
+            if(cart[i].userName == currentUser.username) {
+              count ++;
+              document.getElementById("length-Cart").style.display = "block";
+            };
+        }
+        document.getElementById("lengthCart").innerHTML = count;
+        if(count==0){
+          document.getElementById("length-Cart").style.display = "none";
+        }else document.getElementById("length-Cart").innerHTML = count;
+      }
+      }
+      
 }
-function displayCart(cart){
-    var total=0;
+var total=0;
+function displayCart(cart,currentUser){
     var renderProduct=``;
     for(i=0;i<cart.length;i++){
-        total+=cart[i].product['price'] * cart[i].quantity;
-        renderProduct += `<li class="list-group-item d-flex justify-content-between lh-condensed">
-        <div>
-            <h6 class="my-0">${cart[i].product['name']}</h6>
-            <small class="text-muted">Quantity: ${cart[i].quantity}</small>
-        </div>
-        <span class="text-muted">${cart[i].product['price'] * cart[i].quantity}</span>
-    </li>`
+        if(cart[i].userName == currentUser.username){
+            total+=cart[i].product['price'] * cart[i].quantity;
+            renderProduct += `<li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+                <h6 class="my-0">${cart[i].product['name']}</h6>
+                <small class="text-muted">Quantity: ${cart[i].quantity}</small>
+            </div>
+            <span class="text-muted">${cart[i].product['price'] * cart[i].quantity}</span>
+        </li>`
+        }
+        
     }
     renderProduct +=`<li class="list-group-item d-flex justify-content-between">
     <span>Total (VND)</span>
@@ -40,58 +60,63 @@ function displayCart(cart){
 }
 function sendEmail(){
     Email.send({
-        Host : "smtp.gmail.com",
+        Host : "smtp.elasticemail.com",
         Username : "taidn303@gmail.com",
-        Password : "Tai123578946",
-        To : 'leshinno1@gmail.com',
+        Password : "AC4EB9FC468BFC30BEA91675436CDAE6ED78",
+        To : document.getElementById("email").value,
         From : "taidn303@gmail.com",
-        Subject : "This is the subject",
-        Body : "dcasdasd"
+        Subject : "Email thông tin Order",
+        Body : "Tong tien ban can chuan bi de tra: "+ total,
     }).then(
       message => alert(message)
     );
 }
 function addOrder(){
-    var quantity = parseInt( document.getElementById("quantity").value);
-    var  product;
-    var cond;
-    if (localStorage.getItem("phone") != null) {
-        phone = JSON.parse(localStorage.getItem("phone"));
-    }
-
     if(localStorage.getItem("cart") != null) {
         cart = JSON.parse(localStorage.getItem("cart"));  
         
-      } else{
-          var cart = [];
       }
-
-    for ( i = 0; i < phone.length; i++) {
-        if(phone[i].id == id){
-            product = phone[i];
-        }
-    }
-    if(cart.length<0){
-        cart.push({
-            id: cart.length+1,
-            product: product,
-            quantity: quantity,
-        });
+      if(localStorage.getItem("currentUser") != null) {
+        currentUser = JSON.parse(localStorage.getItem("currentUser"));  
+        
+      } 
+    if(localStorage.getItem("order") !=null){
+        order = JSON.parse(localStorage.getItem("order"));
     }else{
-        for ( i = 0; i < cart.length; i++) {
-            if(cart[i].product["id"] == product.id){
-                cart[i].quantity += quantity;
-                cond=true;
-            }
-        }
-        if(!cond){
-            cart.push({
-                id: cart.length+1,
-                product: product,
-                quantity: quantity,
-            });
-        }
+        var order = [];
     }
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Da them san pham vao gio hang")
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var email = document.getElementById("email").value;
+    var address = document.getElementById("address").value;
+    var address2 = document.getElementById("address2").value;
+    var country = document.getElementById("country").value;
+    var state = document.getElementById("state").value;
+    var zip = document.getElementById("zip").value;
+    var status = "unship";
+    var dateOder = new Date();
+    
+    var info = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        address: address,
+        address2: address2,
+        country: country,
+        state: state,
+        zip: zip,
+    };
+    
+    order.push({
+        id:  order.length+1,
+        currentUser: currentUser.name,
+        cart: cart,
+        info: info,
+        status: status,
+        dateOder: dateOder,
+    });
+    cart = [];
+    localStorage.setItem("cart",JSON.stringify(cart));
+    localStorage.setItem("order", JSON.stringify(order));
+    alert("Da Order thanh cong")
 }
