@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="./css/grid.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/DanhLam.css">
 </head>
-<body>
+<body onload="contactUs()">
   <header>
     <nav class="header__navbar">
       <div class="grid wide">
@@ -47,7 +48,14 @@
                 <a class="header__navbar__menu-item--search__icon" onclick="searchProduct()"><i class="fas fa-search"></i></a>
               </li>
               <li class="header__navbar__menu-item"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-              <li class="header__navbar__menu-item"><a href="#">Sign In</a></li>
+              <li class="header__navbar__menu-item"><a href="login-regis.html" id="login">Sign In</a></li>
+              <li class="header__navbar__menu-item"><div class="dropdown">
+                <a href="" id="dropUser">UserName</a><br>
+                <div class="dropdown-content">
+                <a href="#">Profile User</a>                                                                       
+                <a href="#" onclick="logOut()">Log Out</a>
+                </div>
+              </div></li>
             </ul>
           </div>
         </div>

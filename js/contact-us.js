@@ -35,7 +35,18 @@ carouselSlide.addEventListener('transitionend', () => {
     carouselSlide.style.transform = 'translateX(' + (-220 * counter) + 'px)';
   }
 });
-
+function contactUs(){
+  var currentUser = JSON.parse(localStorage.getItem("currentUser"))
+      if(currentUser){
+           document.getElementById("dropUser").textContent = currentUser.name 
+           document.getElementById("dropUser").style.display = "block"
+           document.getElementById("login").style.display = "none"
+      }
+      else{
+         document.getElementById("dropUser").style.display = "none"
+         document.getElementById("login").style.display = "block"
+      }
+}
 
 
 

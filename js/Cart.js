@@ -1,20 +1,43 @@
+var count = 0;
 function listCart() {
-    if (localStorage.getItem("cart") != null) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-        document.getElementById("length-cart").innerHTML = cart.length;
-        document.getElementById("cart-list").innerHTML = displayListCart(cart).join("");
-        document.getElementById("total-amount").innerHTML = displayTotalAmountCart(cart);
-        document.getElementById("length-Cart").innerHTML = cart.length;
+    var currentUser
+    if (localStorage.getItem("currentUser") != null) {
+        currentUser = JSON.parse(localStorage.getItem("currentUser"));
     }
-    if(cart.length<1){
-        document.getElementById("length-Cart").style.display = "none";
+    if(currentUser != null){
+        if (localStorage.getItem("cart") != null) {
+          cart = JSON.parse(localStorage.getItem("cart"));
+            document.getElementById("cart-list").innerHTML = displayListCart(cart,currentUser).join("");
+            document.getElementById("total-amount").innerHTML = displayTotalAmountCart(cart,currentUser);
+          for(i = 0;i<cart.length;i++){
+            if(cart[i].userName == currentUser.username) {
+              count ++;
+              document.getElementById("length-Cart").style.display = "block";
+            };
+        }
+        document.getElementById("length-cart").innerHTML = count;
+        if(count==0){
+          document.getElementById("length-Cart").style.display = "none";
+        }else document.getElementById("length-Cart").innerHTML = count;
+      }
+      }
+      var currentUser = JSON.parse(localStorage.getItem("currentUser"))
+      if(currentUser){
+           document.getElementById("dropUser").textContent = currentUser.name 
+           document.getElementById("dropUser").style.display = "block"
+           document.getElementById("login").style.display = "none"
+      }
+      else{
+         document.getElementById("dropUser").style.display = "none"
+         document.getElementById("login").style.display = "block"
       }
 }
 
 var total = 0;
-function displayListCart(cart) {
+function displayListCart(cart,currentUser) {
     var renderProduct = cart.map((element, index) => {
-        total += element.product['price'] * element.quantity;
+        if(element.userName == currentUser.username){
+            total += element.product['price'] * element.quantity;
         return `
             <div class="row mb-4">
             <div class="col-md-5 col-lg-3 col-xl-3">
@@ -72,6 +95,8 @@ function displayListCart(cart) {
           `
 
             ;
+        }
+        
 
     });
     return renderProduct;
@@ -118,10 +143,11 @@ function deleteProductCart(id){
     //     }
     //   });
 }
-function displayTotalAmountCart(cart) {
+function displayTotalAmountCart(cart,currentUser) {
     var renderProduct;
     for(i=0;i<cart.length;i++){
-        renderProduct += `
+        if(cart[i].userName == currentUser.username){
+            renderProduct += `
         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
         ${cart[i].product["name"]} <span>  ${cart[i].quantity}</span>
         <span>${cart[i].product['price'] * cart[i].quantity}</span>
@@ -130,8 +156,7 @@ function displayTotalAmountCart(cart) {
         Shipping
         <span>Gratis</span>
     </li>
-    
-      `
+      `}
     }
     renderProduct +=`<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
     <div>
@@ -142,29 +167,6 @@ function displayTotalAmountCart(cart) {
     </div>
     <span><strong>${total}</strong></span>
 </li>`
-//     var renderProduct = cart.map((element, index) => {
-//         return `
-//         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
-//         ${element.product["name"]} <span>  ${element.quantity}</span>
-//         <span>${element.product['price'] * element.quantity}</span>
-//     </li>
-//     <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-//         Shipping
-//         <span>Gratis</span>
-//     </li>
-    
-//       `
-//             ;
-        
-
-//     }) + `<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-//     <div>
-//         <strong>The total amount</strong>
-//         <strong>
-//             <p class="mb-0">(including VAT)</p>
-//         </strong>
-//     </div>
-//     <span><strong>${total}</strong></span>
-// </li>`;
      return renderProduct;
+        
 }

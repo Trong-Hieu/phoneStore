@@ -57,12 +57,15 @@ function saveNewUser(){
     var name = document.getElementById("regisName").value
     var username = document.getElementById("regisUser").value
     var password = document.getElementById("regisPass").value
+    if(username == "" || password == "" || name == ""){
+        alert("vui lòng nhập thông tin")
+    }else {
+        users.push({id,name, username, password})
 
-    users.push({id,name, username, password})
-
-    console.log(users)
-    localStorage.setItem("listUser", JSON.stringify(users))
-    alert("Dang ky thanh cong")
-    formregis.style.display = "none";
-    formlogin.style.display = "block";
+        console.log(users)
+        localStorage.setItem("listUser", JSON.stringify(users))
+        alert("Dang ky thanh cong")
+        formregis.style.display = "none";
+        formlogin.style.display = "block";
+    }
 }
