@@ -71,9 +71,26 @@ var carouselBackground = setInterval(function() {
 function listProducts() {
   if(localStorage.getItem("phone") != null) {
     phone = JSON.parse(localStorage.getItem("phone"));  
-    document.getElementById("list-new-products").innerHTML = listNewProducts(phone).join("");
-    document.getElementById("list-best-sellers").innerHTML = listBestSellers(phone).join("");
+    
+    var k = 0;
+    for(var i = 0; i < listNewProducts(phone).length; i++) {
+      if(listNewProducts(phone)[i] != undefined) {
+        k++;
+        document.getElementById("list-new-products").innerHTML += listNewProducts(phone)[i];
+        if(k == 4) break;
+      }
+    }
+
+    k = 0;
+    for(var i = 0; i < listBestSellers(phone).length; i++) {
+      if(listBestSellers(phone)[i] != undefined) {
+        k++;
+        document.getElementById("list-best-sellers").innerHTML += listBestSellers(phone)[i];
+        if(k == 4) break;
+      }
+    }
   }
+
   var currentUser = JSON.parse(localStorage.getItem("currentUser"))
   if(currentUser){
        document.getElementById("dropUser").textContent = currentUser.name 
@@ -91,10 +108,12 @@ function listNewProducts(phone) {
     if(element.genre == "New product") {
       return `
         <div class="col l-3">
-          <a href="Detail-product.html?id=${element.id}" class="container__homepage__product">
-            <div class="container__homepage__product__img"
-              style="background-image: url(${element.image})">
-            </div>
+          <div class="container__homepage__product">
+            <a href="Detail-product.html?id=${element.id}">
+              <div class="container__homepage__product__img"
+                style="background-image: url(${element.image})">
+              </div>
+            </a>
             <div class="container__homepage__content">
               <div class="container__homepage__product__name">${element.name}</div>
               <div class="container__homepage__product__price">
@@ -111,12 +130,12 @@ function listNewProducts(phone) {
                 </div>
                 <div class="container__homepage__product__review">25 Review</div>
               </div>
-              <div class="container__homepage__product__function">
+              <div class="container__homepage__product__function" onclick="addCart(3)">
                 <i class="fas fa-cart-plus"></i>
               </div>
             </div>
             <div class="container__homepage__installment">Installment 0%</div>
-          </a>
+          </div>
         </div>
       `;
     }
@@ -129,10 +148,12 @@ function listBestSellers(phone) {
     if(element.genre == "Best seller") {
       return `
         <div class="col l-3">
-          <a href="Detail-product.html?id=${element.id}" class="container__homepage__product">
-            <div class="container__homepage__product__img"
-              style="background-image: url(${element.image})">
-            </div>
+          <div class="container__homepage__product">
+            <a href="Detail-product.html?id=${element.id}">
+              <div class="container__homepage__product__img"
+                style="background-image: url(${element.image})">
+              </div>
+            </a>
             <div class="container__homepage__content">
               <div class="container__homepage__product__name">${element.name}</div>
               <div class="container__homepage__product__price">
@@ -149,12 +170,12 @@ function listBestSellers(phone) {
                 </div>
                 <div class="container__homepage__product__review">25 Review</div>
               </div>
-              <div class="container__homepage__product__function">
+              <div class="container__homepage__product__function" onclick="addCart(3)">
                 <i class="fas fa-cart-plus"></i>
               </div>
             </div>
             <div class="container__homepage__installment">Installment 0%</div>
-          </a>
+          </div>
         </div>
       `;
     }
@@ -166,6 +187,7 @@ function logOut(){
   localStorage.removeItem("currentUser")
   window.onload()
 }
+
 
 
 
